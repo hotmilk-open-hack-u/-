@@ -1,10 +1,27 @@
 $(document).ready(function(){
-  // ここに処理を記述します
-  console.log("init");
-});
-$(document).click(function(){
-    console.log("click");
-    $.post('/path/to/file', param1: 'value1', function(data, textStatus, xhr) {
-        /*optional stuff to do after success */
-    });
+  $("#login").submit(function(){
+      var mail = $("#mail").val();
+      var password = $("#password").val();
+      console.log("mail:\t"+mail+"\npass:\t"+password);
+    //   $.ajax({
+    //       type: 'post',
+    //       url: 'http://210.140.71.3/login',
+    //       data: {"user":{"email":"hoge@gmail.com","password":"hogehoge"}},
+    //       dataType: "json",
+    //       crossDomain : true,
+    //       success: function(data){
+    //           console.log("success");
+    //           console.log(data);
+    //       },
+    //       error : function(data) {
+    //           console.log("error");
+    //           console.log(data);
+    //       },
+    //       complete : function(data){
+    //           console.log("complete");
+    //           console.log(data);
+    //       }
+    //   });
+      return false;
+  });
 });
