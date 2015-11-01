@@ -87,7 +87,11 @@
     height: 10vh;
     font-size: 250%;
 }
-
+/* validation style */
+.error-text{
+    color:rgb(215,87,59);
+    font-size:250%;
+}
 /* footer */
 #footer{
     height:15vh;

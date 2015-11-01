@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/login.css">
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/login.js"></script>
 </head>
@@ -23,18 +24,24 @@
     </div>
     <div class="row contents" id="form-wrapper">
         <form id="login">
-        <div class="row form-contents" id="login-form-wrapper">
-            <div class="col-xs-10 col-md-4 col-lg-4 centering" id="login-form">
-                <input id="mail" type="text" name="name" value="" placeholder="メールアドレス">
-                <div class="row centering" id="input-border"></div>
-                <input id="password" type="password" name="name" value="" placeholder="パスワード">
+            <div class="row form-contents" id="login-form-wrapper">
+                <div class="col-xs-10 col-md-4 col-lg-4 centering" id="login-form">
+                    <input id="mail" type="text" name="mailaddress" value="" placeholder="メールアドレス">
+                    <div class="row centering" id="input-border"></div>
+                    <input id="pass" type="password" name="password" value="" placeholder="パスワード">
+                </div>
             </div>
-        </div>
-        <div class="row form-contents" id="login-button-wrapper">
-            <div class="col-xs-10 col-md-4 col-lg-4 centering" style="padding: 0px;">
-                <button id="login-button" type="submit" name="name" value="ログイン">ログイン</button>
+            <div class="row form-contents" id="login-error-wrapper">
+                <label for="mail" class="col-xs-12 col-md-12 col-lg-12 error-text" generated="true" />
             </div>
-        </div>
+            <div class="row form-contents" id="login-error-wrapper2">
+                <label for="pass" class="col-xs-12 col-md-12 col-lg-12 error-text" generated="true" />
+            </div>
+            <div class="row form-contents" id="login-button-wrapper">
+                <div class="col-xs-10 col-md-4 col-lg-4 centering" style="padding: 0px;">
+                    <button id="login-button" type="submit" name="name" value="ログイン">ログイン</button>
+                </div>
+            </div>
         </form>
     </div>
     <div class="row contents" id="password-forget-wrapper">
