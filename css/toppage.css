@@ -1,0 +1,105 @@
+/*test*/
+body{
+    background-color: rgb(255,255,222);
+}
+/*common style*/
+*{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color:#FFFFFF;
+}
+.container{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+.row{
+    margin:0px;
+    padding:0px;
+}
+.centering{
+    margin: 0 auto;
+    float:none;
+}
+.vertical-center{
+    display:table-cell;
+    vertical-align: middle;
+}
+/*header style*/
+#header{
+    background-color: rgb(215,87,59);
+    height:7vh;
+    box-shadow: 0px 0.5vh 0px 0px rgba(183,72,57,1);
+    margin-bottom: 0.5vh;
+}
+#header *{
+    height:100%;
+}
+#logo-img{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+#logo-img img{
+    width:auto;
+    height:100%;
+}
+/*main style*/
+#main{
+    background-color: white;
+}
+#content1-wrapper{
+    height:70vh;
+    background-image: url(../img/typing.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    /*background-attachment: fixed;*/
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color: #B4E3ED;*/
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#content1-wrapper span{
+    font-size:350%;
+}
+#content1-wrapper #login-word{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border:5px;
+    border-style: solid;
+}
+#content1-wrapper #login-word:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+#login-word span{
+    font-size:300%;
+}
+#content2-wrapper{
+    height:70vh;
+}
+#content2-1 span{
+    font-size:300%;
+    color:rgb(180,227,237);
+}
+#content2-2 div{
+    text-align:left;
+}
+#content2-2 span{
+    color:rgb(0,0,0);
+    font-size: 170%;
+}
+.useimage{
+    display:block;
+    width:15vh;
+    height:15vh;
+}
+/*footer style*/
+#footer{
+    height:15vh;
+    background-color:rgb(255,255,222);
+    font-size:200%;
+}
