@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    // validation機能の適応
+    // validation機能の設定
     $("#login").validate({
         rules : {
             mailaddress: {
@@ -22,36 +22,43 @@ $(document).ready(function(){
 
     // ログインボタンのクリック時
     $("#login").submit(function(){
-        // メールアドレスとパスワードの取得
-        var mail = $("#mail").val();
-        var password = $("#password").val();
-        console.log("mail:\t"+mail+"\npass:\t"+password);
+        if($("#login").valid()){// validateの判定
+            console.log("valid");
+            // メールアドレスとパスワードの取得
+            var mail = $("#mail").val();
+            var password = $("#pass").val();
+            console.log("mail:\t"+mail+"\npass:\t"+password);
 
-        $.ajax({
-            type: 'post',
-            url: 'http://210.140.71.3/login',
-            data: {"user":{"email":"hoge@gmail.com","password":"hogehoge"}},
-            dataType: "json",
-            success: function(data){
-                console.log("success");
-                console.log(data);
+            $.ajax({
+                type: 'post',
+                url: 'http://210.140.71.3/login',
+                data: {"user":{"email":mail,"password":password}},
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
 
-                if(data.id == null || data.authentication_token == null){
-                    console.log("not login");
-                }else{
-                    console.log("login");
-                    // データ保存
-                    localStorage.setItem("user_id",data.id);
-                    localStorage.setItem("token",data.authentication_token);
-                    // ホームページに移動
-                    // window.location.href = 'home.html';
+                    if(data.id != null || data.authentication_token != null){
+                        console.log("login");
+                        // データ保存
+                        localStorage.setItem("user_id",data.id);
+                        localStorage.setItem("token",data.authentication_token);
+                        // ホームページに移動
+                        // window.location.href = 'home.html';
+                    }else{
+                        console.log("not login");
+                    }
+                },
+                error : function(data) {
+                    console.log("error");
                 }
-            },
-            error : function(data) {
-                console.log("error");
-                console.log(data);
-            }
-        });
+            });
+        }else{
+            var id = localStorage.getItem("user_id");
+            var token = localStorage.getItem("token");
+            console.log("user_id:\t"+id+"\ntoken:\t"+token);
+            localStorage.clear();// debug用
+            console.log("invalid! strage cleared");
+        }
         return false;
     });
 });
