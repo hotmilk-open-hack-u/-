@@ -3,12 +3,6 @@ body{
     background-color: rgb(255,255,222);
 }
 /*common style*/
-*{
-    margin: 0px;
-    padding: 0px;
-    color:#FFFFFF;
-    text-align: center;
-}
 .container{
     width:100%;
     margin:0;
@@ -46,6 +40,7 @@ body{
     background-color: rgba(255, 255, 255, 0.6);
 }
 #content1-wrapper span{
+    color:white;
     font-size:350%;
 }
 #content1-wrapper .row{
@@ -54,6 +49,9 @@ body{
 #logo-img {
     width:100%;
     height:auto;
+}
+#message{
+    text-align: center;
 }
 #oshiete {
     position: relative;
@@ -64,6 +62,8 @@ body{
     top: -10px;
 }
 #content1-wrapper #login-word{
+    text-align: center;
+    color: white;
     padding-top: 5%;
     padding-bottom: 5%;
     border:5px;
@@ -80,6 +80,7 @@ body{
 #message1{
     padding:3% 0;
     font-size:350%;
+    text-align: center;
     color:rgb(255,255,255);
     background-color: rgb(215,87,59);
 }
@@ -91,6 +92,13 @@ body{
 #content2-2 span{
     color:rgb(0,0,0);
     font-size: 220%;
+}
+#oshiete3{
+    position: relative;
+    display: inline;
+    width: 30%;
+    height: auto;
+    top: -10px;
 }
 .points{
     padding-top: 6%;
@@ -104,6 +112,8 @@ body{
 }
 /*content3*/
 #content3-title{
+    color: white;
+    text-align: center;
     padding:3% 0;
     font-size:350%;
     background-color: rgb(215,87,59);
@@ -115,8 +125,11 @@ body{
     width:100%;;
     height:auto;
 }
+#howtouse{
+    text-align: center;
+}
 #content3-main span{
-    font-size:70%;
+    font-size:0.75em;
     color:black;
 }
 
@@ -168,6 +181,7 @@ body{
     overflow: hidden;
 }
 #more-button{
+    color:white;
     padding:3% 0;
 }
 #more-button button{
@@ -195,16 +209,24 @@ body{
     background-color: rgba(255, 255, 255, 0.6);
 }
 #content5-wrapper #login-word2{
+    color:white;
     padding-top: 5%;
     padding-bottom: 5%;
     border:5px;
     border-style: solid;
     border-radius: 15px;
     font-size:300%;
+    text-align: center;
 }
 /*footer style*/
 #footer-wrapper{
+    text-align: center;
     font-size:80%;
     padding: 1% 0;
     background-color:rgb(255,255,222);
+}
+
+/*modify common style*/
+.ticket-detail h5{
+    font-size:xx-large;
 }

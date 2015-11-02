@@ -5,7 +5,7 @@
     <title>ちえぴったん | トップ</title>
     <meta name="name" content="content">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="css/common.css"> -->
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/toppage.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -21,12 +21,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-9 col-md-9 col-lg-9 centering" id="">
-                    <span>あなたの<img src="img/ボタン-81.png" alt="oshiete" id="oshiete"/>を、<br>応援します。</span>
+                <div class="col-xs-9 col-md-9 col-lg-9 centering" id="message">
+                    <span>あなたの<img src="img/teach-plz-i.png" alt="oshiete" id="oshiete"/>を、<br>応援します。</span>
                 </div>
             </div>
             <div class="row">
-                <a href="#">
+                <a href="login.html">
                     <div class="col-xs-9 col-md-9 col-lg-9 centering" id="login-word">
                         <span>新規登録／ログイン</span>
                     </div>
@@ -45,7 +45,7 @@
                                 <img src="img/use-image1.jpg" alt="useimage" class="centering useimage" id="image-use1" />
                             </div>
                             <div class="col-xs-8 col-md-8 col-lg-8 vertical-center">
-                                <span>簡単ステップで、あっという間に、<br>［教えて！］リクエストが出来ます！</span>
+                                <span>簡単３ステップで、あっという間に、<br><img src="img/teach-plz-r.png" alt="oshiete" id="oshiete3"/>リクエストが出来ます！</span>
                             </div>
                         </div>
                         <div class="row points" id="point2">
@@ -75,11 +75,11 @@
             <div class="row" id="content3-main">
                 <div class="row">
                     <div class="col-xs-10 col-md-10 col-lg-10 centering">
-                        <img src="img/ボタン-77.png" alt="image77" />
+                        <img src="img/howto.png" alt="image77" />
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-10 col-md-10 col-lg-10 centering">
+                    <div class="col-xs-10 col-md-10 col-lg-10 centering" id="howtouse">
                         <span>教えて欲しいことを登録すると…<br>ちえぴったんがあなたにあったユーザーをマッチング！<br>教えてもらう方法はネット上でも、実際にあってもよし<br>それぞれの得意分野を教え合いましょう！</span>
                     </div>
                 </div>
@@ -88,12 +88,38 @@
         <div class="row" id="content4-wrapper">
             <div class="row" id="content4-title">
                 <div class="col-xs-5 col-md-5 col-lg-5">
-                    <span>注目の<img src="img/ボタン-78.png" alt="oshiete2" id="oshiete2"/></span>
+                    <span>注目の<img src="img/teach-plz.png" alt="oshiete2" id="oshiete2"/></span>
                 </div>
             </div>
             <div class="row" id="content4-main">
                 <!-- ここに注目の教えてを挿入 -->
-                <div class="row tickets" v-for="item in items">
+                <div class="ticket" v-for="item in items">
+                  <a href="#" class="no-decoration">
+                    <div class="ticket-image">
+                      <div class="new"></div>
+                      <img src="img/ticket.jpg" alt="ticket image">
+                    </div>
+                    <div class="ticket-detail">
+                      <h5 class="no-margin hide-overflow">
+                        <strong class="title">{{item.title}}</strong>
+                      </h5>
+                      <ul class="list-inline color-blue-dark">
+                        <li class="price icon-inline-price">{{item.price}}</li>
+                        <li class="time icon-inline-time">{{item.time}}</li>
+                        <li class="location icon-inline-location">{{item.offline_place}}</li>
+                      </ul>
+                      <footer class="clearfix">
+                        <p class="user pull-left">
+                          <img src="img/user-icon.jpg" alt="user icon" class="img-circle">
+                          <strong class="user-name">{{item.user.username}}</strong>
+                        </p>
+                        <span class="like icon-inline-like pull-right color-red">1</span>
+                      </footer>
+                    </div>
+                  </a>
+                </div>
+                <!-- 初期のテンプレート -->
+                <!-- <div class="row tickets" v-for="item in items">
                     <div class="col-xs-4 col-md-4 col-lg-4">
                         <img src="img/dammyman.png" alt="dammyimg" />
                     </div>
@@ -124,7 +150,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row" id="more-button">
                 <div class="col-xs-8 col-md-8 col-lg-8 centering">
                     <button type="button" name="button">もっとみる</button>
@@ -132,7 +158,7 @@
             </div>
         </div>
         <div class="row" id="content5-wrapper">
-            <a href="#">
+            <a href="login.html">
                 <div class="col-xs-9 col-md-9 col-lg-9 centering" id="login-word2">
                     <span>新規登録／ログイン</span>
                 </div>
