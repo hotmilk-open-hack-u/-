@@ -6,8 +6,8 @@ body{
 *{
     margin: 0px;
     padding: 0px;
-    text-align: center;
     color:#FFFFFF;
+    text-align: center;
 }
 .container{
     width:100%;
@@ -141,6 +141,31 @@ body{
     border-radius: 10px;
     margin: 2% 0;
     box-shadow: 0px 4px 1px 1px rgba(0,0,0,0.3)
+}
+.tickets{
+    background-color: white;
+    border-radius: 10px;
+    margin: 2% 0;
+    box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.2);
+}
+.tickets > div{
+    padding:0;
+    text-align: left;
+}
+.tickets span{
+    color:rgb(125,179,209);
+    font-size: 250%;
+}
+.tickets img{
+    width:100%;
+    height:auto;
+}
+.tickets .account-img{
+    display: inline;
+    width:70px;
+    height:70px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 #more-button{
     padding:3% 0;
