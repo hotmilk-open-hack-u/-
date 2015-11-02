@@ -26,30 +26,12 @@ body{
     display:table-cell;
     vertical-align: middle;
 }
-/*header style*/
-#header{
-    background-color: rgb(215,87,59);
-    height:7vh;
-    box-shadow: 0px 0.5vh 0px 0px rgba(183,72,57,1);
-    margin-bottom: 0.5vh;
-}
-#header *{
-    height:100%;
-}
-#logo-img{
-    padding-top: 1vh;
-    padding-bottom: 1vh;
-}
-#logo-img img{
-    width:auto;
-    height:100%;
-}
 /*main style*/
 #main{
     background-color: white;
 }
+/*content1*/
 #content1-wrapper{
-    height:70vh;
     background-image: url(../img/typing.jpg);
     /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
@@ -66,11 +48,27 @@ body{
 #content1-wrapper span{
     font-size:350%;
 }
+#content1-wrapper .row{
+    margin:20% 0;
+}
+#logo-img {
+    width:100%;
+    height:auto;
+}
+#oshiete {
+    position: relative;
+    display: inline;
+    margin:0 10px;
+    width: 35%;
+    height: auto;
+    top: -10px;
+}
 #content1-wrapper #login-word{
     padding-top: 5%;
     padding-bottom: 5%;
     border:5px;
     border-style: solid;
+    border-radius: 15px;
 }
 #content1-wrapper #login-word:hover{
     background-color: rgba(255,255,255,0.3);
@@ -78,28 +76,110 @@ body{
 #login-word span{
     font-size:300%;
 }
-#content2-wrapper{
-    height:70vh;
+/*content2*/
+#message1{
+    padding:3% 0;
+    font-size:350%;
+    color:rgb(255,255,255);
+    background-color: rgb(215,87,59);
 }
 #content2-1 span{
-    font-size:300%;
-    color:rgb(180,227,237);
 }
 #content2-2 div{
     text-align:left;
 }
 #content2-2 span{
     color:rgb(0,0,0);
-    font-size: 170%;
+    font-size: 220%;
+}
+.points{
+    padding-top: 6%;
+}#point3{
+    padding-bottom: 6%;
 }
 .useimage{
     display:block;
     width:15vh;
     height:15vh;
 }
+/*content3*/
+#content3-title{
+    padding:3% 0;
+    font-size:350%;
+    background-color: rgb(215,87,59);
+}
+#content3-main .row{
+    padding-top:3%;
+}
+#content3-main img{
+    width:100%;;
+    height:auto;
+}
+#content3-main span{
+    font-size:70%;
+    color:black;
+}
+
+/*content4*/
+#content4-wrapper{
+    background-color: rgb(255,255,222);
+}
+#content4-title span{
+    font-size: 250%;
+    color:rgb(125,179,209);
+}
+#oshiete2 {
+    position: relative;
+    display: inline;
+    width: 50%;
+    height: auto;
+    top: -8px;
+}
+.dammies{
+    background-color: white;
+    height: 15vh;
+    border-radius: 10px;
+    margin: 2% 0;
+    box-shadow: 0px 4px 1px 1px rgba(0,0,0,0.3)
+}
+#more-button{
+    padding:3% 0;
+}
+#more-button button{
+    font-size:300%;
+    padding:3% 0;
+    width:100%;
+    background-color: rgb(215,87,59);
+    box-shadow: 0px 6px 0px 0px rgb(183,72,57);
+    border-radius: 25px;
+}
+/*content5*/
+#content5-wrapper{
+    padding:20% 0;
+    background-image: url(../img/typing.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    /*background-attachment: fixed;*/
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color: #B4E3ED;*/
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#content5-wrapper #login-word2{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border:5px;
+    border-style: solid;
+    border-radius: 15px;
+    font-size:300%;
+}
 /*footer style*/
-#footer{
-    height:15vh;
+#footer-wrapper{
+    font-size:80%;
+    padding: 1% 0;
     background-color:rgb(255,255,222);
-    font-size:200%;
 }
