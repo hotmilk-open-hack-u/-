@@ -9,6 +9,18 @@ $(document).ready(function(){
                 dataType: "json",
                 success: function(data){
                     console.log(data);
+                    // vueによってデータバインディング
+                    var vueTickets = new Vue({
+                      el: '#content4-main',
+                      data: {
+                        items: data.tickets
+                      }
+                    });
+                    // vue test
+                    setTimeout(function(){
+                        console.log("vue reset");
+                        //vueTickets.items = {};
+                    },3000);
                     // DOMにより表示
                     for(var i=0;i<data.tickets.length;i++){
                         addTicket(data.tickets[i]);
