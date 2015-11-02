@@ -1,0 +1,232 @@
+/*test*/
+body{
+    background-color: rgb(255,255,222);
+}
+/*common style*/
+.container{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+.row{
+    margin:0px;
+    padding:0px;
+}
+.centering{
+    margin: 0 auto;
+    float:none;
+}
+.vertical-center{
+    display:table-cell;
+    vertical-align: middle;
+}
+/*main style*/
+#main{
+    background-color: white;
+}
+/*content1*/
+#content1-wrapper{
+    background-image: url(../img/typing.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    /*background-attachment: fixed;*/
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color: #B4E3ED;*/
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#content1-wrapper span{
+    color:white;
+    font-size:350%;
+}
+#content1-wrapper .row{
+    margin:20% 0;
+}
+#logo-img {
+    width:100%;
+    height:auto;
+}
+#message{
+    text-align: center;
+}
+#oshiete {
+    position: relative;
+    display: inline;
+    margin:0 10px;
+    width: 35%;
+    height: auto;
+    top: -10px;
+}
+#content1-wrapper #login-word{
+    text-align: center;
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border:5px;
+    border-style: solid;
+    border-radius: 15px;
+}
+#content1-wrapper #login-word:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+#login-word span{
+    font-size:300%;
+}
+/*content2*/
+#message1{
+    padding:3% 0;
+    font-size:350%;
+    text-align: center;
+    color:rgb(255,255,255);
+    background-color: rgb(215,87,59);
+}
+#content2-1 span{
+}
+#content2-2 div{
+    text-align:left;
+}
+#content2-2 span{
+    color:rgb(0,0,0);
+    font-size: 180%;
+}
+#oshiete3{
+    position: relative;
+    display: inline;
+    width: 30%;
+    height: auto;
+    top: -10px;
+}
+.points{
+    padding-top: 6%;
+}#point3{
+    padding-bottom: 6%;
+}
+.useimage{
+    display:block;
+    width:15vh;
+    height:15vh;
+}
+/*content3*/
+#content3-title{
+    color: white;
+    text-align: center;
+    padding:3% 0;
+    font-size:350%;
+    background-color: rgb(215,87,59);
+}
+#content3-main .row{
+    padding-top:3%;
+}
+#content3-main img{
+    width:100%;;
+    height:auto;
+}
+#howtouse{
+    text-align: center;
+}
+#content3-main span{
+    font-size:0.75em;
+    color:black;
+}
+
+/*content4*/
+#content4-wrapper{
+    background-color: rgb(255,255,222);
+}
+#content4-title span{
+    font-size: 250%;
+    color:rgb(125,179,209);
+}
+#oshiete2 {
+    position: relative;
+    display: inline;
+    width: 50%;
+    height: auto;
+    top: -8px;
+}
+.dammies{
+    background-color: white;
+    height: 15vh;
+    border-radius: 10px;
+    margin: 2% 0;
+    box-shadow: 0px 4px 1px 1px rgba(0,0,0,0.3)
+}
+.tickets{
+    background-color: white;
+    border-radius: 10px;
+    margin: 2% 0;
+    box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.2);
+}
+.tickets > div{
+    padding:0;
+    text-align: left;
+}
+.tickets span{
+    color:rgb(125,179,209);
+    font-size: 250%;
+}
+.tickets img{
+    width:100%;
+    height:auto;
+}
+.tickets .account-img{
+    display: inline;
+    width:70px;
+    height:70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#more-button{
+    color:white;
+    padding:3% 0;
+}
+#more-button button{
+    font-size:300%;
+    padding:3% 0;
+    width:100%;
+    background-color: rgb(215,87,59);
+    box-shadow: 0px 6px 0px 0px rgb(183,72,57);
+    border-radius: 17px;
+}
+/*content5*/
+#content5-wrapper{
+    padding:20% 0;
+    background-image: url(../img/typing.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    /*background-attachment: fixed;*/
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color: #B4E3ED;*/
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#content5-wrapper #login-word2{
+    color:white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border:5px;
+    border-style: solid;
+    border-radius: 15px;
+    font-size:300%;
+    text-align: center;
+}
+/*footer style*/
+#footer-wrapper{
+    text-align: center;
+    font-size:80%;
+    padding: 1% 0;
+    background-color:rgb(255,255,222);
+}
+
+/*modify common style*/
+.ticket-detail h5{
+    font-size:xx-large;
+}
