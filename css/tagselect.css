@@ -31,6 +31,7 @@ body{
     /*background-color: #B4E3ED;*/
     background-color: rgba(255, 255, 255, 0.6);
 }
+
 /*title*/
 #title{
     font-size: 330%;
@@ -41,7 +42,7 @@ body{
 /*selecter*/
 #selecter {
     width:100vw;
-    height: 50vh;
+    height: 40%;
     display:inline-block;
 
     white-space: nowrap;
@@ -52,12 +53,10 @@ body{
     position: relative;
     float: left;
     height: 100%;
-    bottom: -50%;
+    bottom: -20%;
 }
 .slider .s-item{
     width:20vw;
-    height: 50%;
-    background-color: rgba(215,87,59,0.65);
     margin:0 -5px;
     border-radius: 5px;
     display: inline;
@@ -69,43 +68,63 @@ body{
     -o-writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
 }
+/*class toggler*/
+.selected{
+    height: 80%;
+    background-color: rgba(215,87,59,1);
+}.selected span{margin: 10% 15%;}
+.unselected{
+    height: 60%;
+    background-color: rgba(215,87,59,0.65);
+}.unselected span{margin: 10% 20%;}
+
 .s-item .category-button{
     width:100%;
     height:100%;
 }
 .s-item span{
-    margin: 10% 20%;
     font-size: 200%;
     color: white;
     display: inline-block;
 }
 /*whiteline*/
 #whiteline{
+    margin-bottom: -3px;
     height: 1vh;
     background-color: white;
 }
 /*tag-selecter*/
 #tag-selecter{
     width:100vw;
+    height: 40%;
     display:inline-block;
 
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
 }
+#tags{
+    height:70%;
+}
 .s-item2{
     display: inline;
     width: 20vw;
-    height:50vw;
-    background-color: rgba(255,255,255,0.65);
+    height:100%;
     margin:0 -5px;
     border-radius: 5px;
+    box-shadow: none;
     /*縦書きの設定*/
     writing-mode: tb-rl; /* IE独自仕様 */
     writing-mode: vertical-rl;
     -moz-writing-mode: vertical-rl;
     -o-writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
+}
+.included{
+    background-color: rgba(255,255,255,1);
+}
+.not_included{
+    background-color: rgba(255,255,255,0.65);
 }
 .s-item2 span{
     position: relative;
@@ -122,6 +141,12 @@ body{
 }
 /*register*/
 #register-button{
+    width:90%;
+    height:200px;
+    font-size:300%;
+}
+/*reset-button*/
+#reset-button{
     width:90%;
     height:200px;
     font-size:300%;

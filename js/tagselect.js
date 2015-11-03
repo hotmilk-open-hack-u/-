@@ -42,6 +42,7 @@ $(document).ready(function(){
         el:"#tags",
         data:{
             c_id : choose_category_id,
+            selected_tags: selected_tags
         },
         computed: {
             // 算出 getter 関数
@@ -57,7 +58,7 @@ $(document).ready(function(){
 
                 if(selected_tags.indexOf(t_id) == -1){// 未選択のタグ
                     console.log(t_id+" : "+t_name);
-                    selected_tags.push((t_id+1));
+                    selected_tags.push((t_id));
                     selected_tag_names.push(t_name);
                 }else{
                     console.log("already selected tag");
@@ -76,25 +77,21 @@ $(document).ready(function(){
             vueCategories = new Vue({
                 el: '#categories',
                 data: {
-                    categories: category_data.categories
+                    categories: category_data.categories,
+                    c_id:choose_category_id
                 },
                 methods:{
                     update:function(data){// カテゴリクリック時の処理
                         var ctg_id = data.category.category_id;// 押されたカテゴリid
                         ctg_id = parseInt(ctg_id);// 文字列 -> Int
                         var ctg_name = data.category.category_name;// 押されたカテゴリ名
-                        console.log(ctg_id+" : "+ctg_name);
 
+                        this.c_id = ctg_id;
                         vueTags.c_id = ctg_id;
 
                         // 要素をslider内に移動
                         setTimeout(function(){
-                            console.log("append");
                             $(".s-item2").appendTo("#tag-selecter .slick-track");
-                            setTimeout(function(){
-                                // $('.tag-slider').slick('slickSetOption',"slidesToShow",4.5,true);
-                                console.log("refresh");
-                            },50);
                         },1);
                     }
                 }
@@ -108,6 +105,10 @@ $(document).ready(function(){
     // 登録ボタンの処理
     $("#register-button").click(function(){
         console.log("post this data");
+        // タグIDに全て1を足す
+        for(var i=0;i<selected_tags.length;i++){
+            selected_tags[i] = selected_tags[i]+1;
+        }
         console.log(selected_tags);
         console.log(selected_tag_names);
         // $.ajax({
@@ -126,10 +127,10 @@ $(document).ready(function(){
 
     // リセットボタンの処理
     $("#reset-button").click(function(){
-        console.log("reset");
         selected_tags = [];
         selected_tag_names = [];
         vueSelectedTags.selected_tags = selected_tag_names;
+        vueTags.selected_tags = selected_tags;
     });
 });
 

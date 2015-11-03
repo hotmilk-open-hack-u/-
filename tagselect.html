@@ -19,15 +19,15 @@
         </div>
         <div id="selecter" class="row">
             <div class="slider" id="categories">
-                <div class="s-item category-button" v-on:click="update(this)" v-for="category in categories" type="button" value={{category.category_id}} name={{category.category_name}}>
+                <div class="s-item category-button {{category.category_id == c_id ? 'selected':'unselected'}}" v-on:click="update(this)" v-for="category in categories" type="button" value={{category.category_id}} name={{category.category_name}}>
                     <span>{{category.category_name}}</span>
                 </div>
             </div>
         </div>
         <div id="whiteline" class="row"></div>
         <div id="tag-selecter" class="row">
-            <div class="tag-slider horizon-swiper" id="tags">
-                <div class="s-item2 horizon-item tag-button" v-on:click="update(this)" v-for="td in tag_data" type="button" value={{td.tag_id}} name={{td.tag_name}}>
+            <div  id="tags" class="tag-slider">
+                <div class="s-item2 tag-button {{selected_tags.indexOf(td.tag_id) != -1 ? 'included' : 'not_included'}}" v-on:click="update(this)" v-for="td in tag_data" type="button" value={{td.tag_id}} name={{td.tag_name}}>
                     <span class="centering">{{td.tag_name}}</span>
                 </div>
             </div>
@@ -39,7 +39,7 @@
         </div>
         <div class="row">
             <button type="button" id="register-button" class="btn btn-lg center-block color-red">ジャンル登録</button>
-            <button type="button" id="reset-button" class="btn color-white text-color-red">選択リセット</button>
+            <button type="button" id="reset-button" class="btn color-white text-color-red center-block">選択リセット</button>
         </div>
     </div>
 <body>
