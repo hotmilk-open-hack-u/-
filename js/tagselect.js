@@ -8,6 +8,7 @@ var selected_tag_names =[];
 var choose_category_id = 0;
 
 var category_data;
+
 $(document).ready(function(){
     // userの情報を取得
     // var user_id = localStorage.getItem("user_id");
@@ -56,24 +57,13 @@ $(document).ready(function(){
 
                 if(selected_tags.indexOf(t_id) == -1){// 未選択のタグ
                     console.log(t_id+" : "+t_name);
-                    selected_tags.push(t_id);
+                    selected_tags.push((t_id+1));
                     selected_tag_names.push(t_name);
                 }else{
                     console.log("already selected tag");
                 }
             }
         }
-    });
-    // スライダーの設定
-    $('.tag-slider').slick({
-        arrows:false,
-        centerMode: false,
-        slidesToScroll:1,
-        infinite:false,
-        cssEase:"ease",
-        slidesToShow:4.5,
-        swipeToSlide:true,
-        speed:10
     });
     // タグ一覧を取得
     $.ajax({
@@ -96,19 +86,18 @@ $(document).ready(function(){
                         console.log(ctg_id+" : "+ctg_name);
 
                         vueTags.c_id = ctg_id;
+
+                        // 要素をslider内に移動
+                        setTimeout(function(){
+                            console.log("append");
+                            $(".s-item2").appendTo("#tag-selecter .slick-track");
+                            setTimeout(function(){
+                                // $('.tag-slider').slick('slickSetOption',"slidesToShow",4.5,true);
+                                console.log("refresh");
+                            },50);
+                        },1);
                     }
                 }
-            });
-            // スライダーの設定
-            $('.slider').slick({
-                arrows:false,
-                centerMode: false,
-                slidesToScroll:3,
-                infinite:false,
-                cssEase:"ease",
-                slidesToShow:4.5,
-                swipeToSlide:true,
-                speed:50
             });
         },
         error : function(data) {

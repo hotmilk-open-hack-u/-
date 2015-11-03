@@ -6,30 +6,28 @@
     <meta name="name" content="content">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/tagselect.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/vue.min.js"></script>
     <script src="js/tagselect.js"></script>
-    <script src="js/slick.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div id="title" class="row">
             <span>得意ジャンルを登録しよう</span>
         </div>
-        <div id="selecter" class="row centering">
+        <div id="selecter" class="row">
             <div class="slider" id="categories">
                 <div class="s-item category-button" v-on:click="update(this)" v-for="category in categories" type="button" value={{category.category_id}} name={{category.category_name}}>
-                        <span class="centering">{{category.category_name}}</span>
+                    <span>{{category.category_name}}</span>
                 </div>
             </div>
         </div>
+        <div id="whiteline" class="row"></div>
         <div id="tag-selecter" class="row">
-            <div class="tag-slider" id="tags">
-                <div class="s-item2 tag-button" v-on:click="update(this)" v-for="td in tag_data" type="button" value={{td.tag_id}} name={{td.tag_name}}>
+            <div class="tag-slider horizon-swiper" id="tags">
+                <div class="s-item2 horizon-item tag-button" v-on:click="update(this)" v-for="td in tag_data" type="button" value={{td.tag_id}} name={{td.tag_name}}>
                     <span class="centering">{{td.tag_name}}</span>
                 </div>
             </div>
