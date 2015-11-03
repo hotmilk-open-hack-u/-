@@ -21,14 +21,21 @@
             <span>得意ジャンルを登録しよう</span>
         </div>
         <div id="selecter" class="row centering">
-            <div class="slider" id="tags">
-                <div class="s-item tag-button" v-for="tag in tags" type="button" value={{tag.id}} name={{tag.name}}>
-                        <span class="centering">{{tag.name}}</span>
+            <div class="slider" id="categories">
+                <div class="s-item category-button" v-on:click="update(this)" v-for="category in categories" type="button" value={{category.category_id}} name={{category.category_name}}>
+                        <span class="centering">{{category.category_name}}</span>
                 </div>
-          </div>
+            </div>
+        </div>
+        <div id="tag-selecter" class="row">
+            <div class="tag-slider" id="tags">
+                <div class="s-item2 tag-button" v-on:click="update(this)" v-for="td in tag_data" type="button" value={{td.tag_id}} name={{td.tag_name}}>
+                    <span class="centering">{{td.tag_name}}</span>
+                </div>
+            </div>
         </div>
         <div id="selected" class="row">
-            <div class="col-xs-3 col-md-3 col-md-3 centering" v-for="tag in tags">
+            <div class="col-xs-3 col-md-3 col-md-3 centering" v-for="tag in selected_tags">
                 <button type="button" class="btn color-yellow selected-btn" >{{tag}}</button>
             </div>
         </div>

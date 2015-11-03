@@ -18,7 +18,7 @@
     margin: 0 auto;
     float: none;
 }
-.container{
+body{
     background-image: url(../img/user-bg.jpg);
     /* 画像を常に天地左右の中央に配置 */
     background-position: center center;
@@ -44,19 +44,20 @@
     width:100vw;
 }
 .slider .s-item{
-    width:5vw;
+    width:10vw;
     height:50vw;
     background-color: rgb(215,87,59);
     margin:0 5px;
     border-radius: 10px;
 
+    /*縦書きの設定*/
     writing-mode: tb-rl; /* IE独自仕様 */
     writing-mode: vertical-rl;
     -moz-writing-mode: vertical-rl;
     -o-writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
 }
-.s-tiem .tag-button{
+.s-tiem .category-button{
     width:100%;
     height:100%;
 }
@@ -67,7 +68,33 @@
     font-size: 200%;
     color:white;
 }
-
+/*tag-selecter*/
+#tag-selecter{
+    width:100vw;
+    height:30vh;
+    display:inline-block;
+}
+.s-item2{
+    display: inline;
+    width: 20vw;
+    height:50vw;
+    background-color: white;
+    margin:0 5px;
+    border-radius: 10px;
+    /*縦書きの設定*/
+    writing-mode: tb-rl; /* IE独自仕様 */
+    writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    -o-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+}
+.s-item2 span{
+    position: relative;
+    left:-40%;
+    margin:10% 0;
+    font-size: 200%;
+    color:black;
+}
 /*selected*/
 .selected-btn{
     width:100%;
