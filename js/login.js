@@ -31,7 +31,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type: 'post',
-                url: 'http://210.140.71.3/login',
+                url: 'http://210.140.71.3/login.json',
                 data: {"user":{"email":mail,"password":password}},
                 dataType: "json",
                 success: function(data){
