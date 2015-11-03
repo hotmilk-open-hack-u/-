@@ -1,0 +1,153 @@
+/*initialize*/
+.container{
+    width:100%;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+}
+.row{
+    margin:0;
+    padding:0;
+}
+.centering{
+    margin: 0 auto;
+}
+.centering > button{
+    display: block;
+    margin: 0 auto;
+    float: none;
+}
+body{
+    background-image: url(../img/user-bg.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color: #B4E3ED;*/
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*title*/
+#title{
+    font-size: 330%;
+    color:rgb(215,87,59);
+    text-align: center;
+    padding:5% 0;
+}
+/*selecter*/
+#selecter {
+    width:100vw;
+    height: 40%;
+    display:inline-block;
+
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.slider{
+    position: relative;
+    float: left;
+    height: 100%;
+    bottom: -20%;
+}
+.slider .s-item{
+    width:20vw;
+    margin:0 -5px;
+    border-radius: 5px;
+    display: inline;
+
+    /*縦書きの設定*/
+    writing-mode: tb-rl; /* IE独自仕様 */
+    writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    -o-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+}
+/*class toggler*/
+.selected{
+    height: 80%;
+    background-color: rgba(215,87,59,1);
+}.selected span{margin: 10% 15%;}
+.unselected{
+    height: 60%;
+    background-color: rgba(215,87,59,0.65);
+}.unselected span{margin: 10% 20%;}
+
+.s-item .category-button{
+    width:100%;
+    height:100%;
+}
+.s-item span{
+    font-size: 200%;
+    color: white;
+    display: inline-block;
+}
+/*whiteline*/
+#whiteline{
+    margin-bottom: -3px;
+    height: 1vh;
+    background-color: white;
+}
+/*tag-selecter*/
+#tag-selecter{
+    width:100vw;
+    height: 40%;
+    display:inline-block;
+
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+#tags{
+    height:70%;
+}
+.s-item2{
+    display: inline;
+    width: 20vw;
+    height:100%;
+    margin:0 -5px;
+    border-radius: 5px;
+    box-shadow: none;
+    /*縦書きの設定*/
+    writing-mode: tb-rl; /* IE独自仕様 */
+    writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    -o-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+}
+.included{
+    background-color: rgba(255,255,255,1);
+}
+.not_included{
+    background-color: rgba(255,255,255,0.65);
+}
+.s-item2 span{
+    position: relative;
+    left:-40%;
+    margin:10% 0;
+    font-size: 200%;
+    color:rgb(183,72,57);
+}
+/*selected*/
+.selected-btn{
+    width:100%;
+    height:100px;
+    font-size: 150%;
+}
+/*register*/
+#register-button{
+    width:90%;
+    height:200px;
+    font-size:300%;
+}
+/*reset-button*/
+#reset-button{
+    width:90%;
+    height:200px;
+    font-size:300%;
+}
