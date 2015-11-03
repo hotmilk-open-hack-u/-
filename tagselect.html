@@ -6,9 +6,9 @@
     <meta name="name" content="content">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/tagselect.css">
     <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/slick-theme.css.css">
+    <link rel="stylesheet" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/tagselect.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/vue.min.js"></script>
@@ -20,17 +20,16 @@
         <div id="title" class="row">
             <span>得意ジャンルを登録しよう</span>
         </div>
-        <div id="selecter" class="row">
-
-        </div>
-        <div id="tags" class="row">
-            <div class="col-xs-3 col-md-3 col-md-3 centering" v-for="tag in tags">
-                <button type="button" type="button" value={{tag.id}} name={{tag.name}} class="btn color-red tag-button">{{tag.name}}</button>
-            </div>
+        <div id="selecter" class="row centering">
+            <div class="slider" id="tags">
+                <div class="s-item tag-button" v-for="tag in tags" type="button" value={{tag.id}} name={{tag.name}}>
+                        <span class="centering">{{tag.name}}</span>
+                </div>
+          </div>
         </div>
         <div id="selected" class="row">
             <div class="col-xs-3 col-md-3 col-md-3 centering" v-for="tag in tags">
-                <button type="button" class="btn color-yellow" >{{tag}}</button>
+                <button type="button" class="btn color-yellow selected-btn" >{{tag}}</button>
             </div>
         </div>
         <div class="row">

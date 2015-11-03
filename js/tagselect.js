@@ -42,9 +42,21 @@ $(document).ready(function(){
                 tags: data.categories
               }
             });
+            // スライダーの設定
+            $('.slider').slick({
+                arrows:false,
+                centerMode: false,
+                slidesToScroll:5,
+                infinite:false,
+                cssEase:"ease",
+                slidesToShow:5,
+                swipeToSlide:true,
+                speed:50
+            });
+
             // タグボタンクリック時の処理
             $(".tag-button").click(function(btn){
-                var t_id = $(this).val();// 押されたtag_id
+                var t_id = $(this).attr("value");// 押されたtag_id
                 t_id = parseInt(t_id);// 文字列 -> Int
                 var t_name = $(this).attr("name");// 押されたtag名
                 // console.log(t_id);
