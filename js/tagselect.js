@@ -1,3 +1,6 @@
+var vueSelectedTags;
+var vueTags;
+
 var selected_tags = [];
 var selected_tag_names =[];
 
@@ -18,7 +21,7 @@ $(document).ready(function(){
     }
 
     // 選択済のタグを表示
-    var vueTagName = new Vue({
+    vueSelectedTags = new Vue({
       el: '#selected',
       data: {
         tags:selected_tag_names
@@ -33,7 +36,7 @@ $(document).ready(function(){
         success: function(data){
             console.log(data);
             // タグ一覧を表示 id と name
-            var vueTags = new Vue({
+            vueTags = new Vue({
               el: '#tags',
               data: {
                 tags: data.categories
@@ -42,11 +45,16 @@ $(document).ready(function(){
             // タグボタンクリック時の処理
             $(".tag-button").click(function(btn){
                 var t_id = $(this).val();// 押されたtag_id
+                t_id = parseInt(t_id);// 文字列 -> Int
                 var t_name = $(this).attr("name");// 押されたtag名
                 // console.log(t_id);
                 // console.log(t_name);
-                selected_tags.push(t_id);
-                selected_tag_names.push(t_name);
+                if(selected_tags.indexOf(t_id) == -1){// 未選択のタグ
+                    selected_tags.push(t_id);
+                    selected_tag_names.push(t_name);
+                }else{
+                    console.log("already selected tag");
+                }
             });
         },
         error : function(data) {
@@ -54,7 +62,7 @@ $(document).ready(function(){
         }
     });
 
-    // ボタンクリックの時の処理
+    // 登録ボタンの処理
     $("#register-button").click(function(){
         console.log("post this data");
         console.log(selected_tags);
@@ -72,6 +80,11 @@ $(document).ready(function(){
         //     }
         // });
     });
-
-
+    // リセットボタンの処理
+    $("#reset-button").click(function(){
+        console.log("reset");
+        selected_tags = [];
+        selected_tag_names = [];
+        vueSelectedTags.tags = selected_tag_names;
+    });
 });

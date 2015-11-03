@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ちえぴったん | トップ</title>
+    <title>ちえぴったん | ジャンル選択</title>
     <meta name="name" content="content">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/common.css">
@@ -14,14 +14,25 @@
 </head>
 <body>
     <div class="container">
+        <div id="title" class="row">
+            <span>得意ジャンルを登録しよう</span>
+        </div>
+        <div id="selecter" class="row">
+
+        </div>
         <div id="tags" class="row">
-            <button type="button" style="margin:10px;" type="button" value={{tag.id}} name={{tag.name}} class="btn color-red tag-button" v-for="tag in tags">{{tag.name}}</button>
+            <div class="col-xs-3 col-md-3 col-md-3" v-for="tag in tags">
+                <button type="button" type="button" value={{tag.id}} name={{tag.name}} class="btn color-red tag-button">{{tag.name}}</button>
+            </div>
         </div>
         <div id="selected" class="row">
-            <button type="button" class="btn color-yellow" v-for="tag in tags">{{tag}}</button>
+            <div class="col-xs-3 col-md-3 col-md-3" v-for="tag in tags">
+                <button type="button" class="btn color-yellow" >{{tag}}</button>
+            </div>
         </div>
         <div class="row">
             <button type="button" id="register-button" class="btn btn-lg center-block color-red">ジャンル登録</button>
+            <button type="button" id="reset-button" class="btn color-white text-color-red">選択リセット</button>
         </div>
     </div>
 <body>
