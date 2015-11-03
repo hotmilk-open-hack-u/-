@@ -1,3 +1,4 @@
+/*initialize*/
 .container{
     width:100%;
     margin:0px;
@@ -6,4 +7,37 @@
 .row{
     margin:0;
     padding:0;
+}
+.centering{
+    margin: 0 auto;
+    float: left;
+}
+.centering > button{
+    display: block;
+    margin: 0 auto;
+    float: none;
+}
+.container{
+    background-image: url(../img/user-bg.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color: #B4E3ED;*/
+    background-color: rgba(255, 255, 255, 0.6);
+}
+/*title*/
+#title{
+    font-size: 250%;
+    color:rgb(215,87,59);
+    text-align: center
+}
+/*selecter*/
+#selecter{
+    height:70vh;
 }
