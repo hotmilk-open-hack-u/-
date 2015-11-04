@@ -45,7 +45,7 @@ html{
     background-color: rgba(255, 255, 255, 0.6);
 }
 #main #logo-wrapper{
-    padding:10% 0;
+    padding-top:10%;
 }
 #logo-wrapper{
 
@@ -54,20 +54,31 @@ html{
     width:80%;
     height:auto;
 }
+#login-word{
+    padding-bottom: 15%;
+}
 #login-word span{
-    font-size: 400%;
+    font-size: 300%;
 }
-#login-form{
-    padding:10px;
-    background-color: white;
+/*form*/
+#login-form-wrapper div{
+    padding-bottom: 1%;
 }
-#login-form input{
+#login-form-wrapper strong{
+    display: block;
+    text-align: left;
+    font-size: 220%;
+    color:black;
+}
+#login-form-wrapper input{
     width: 100%;
-    height: 100px;
+    height: 80px;
     border: none;
+    padding-left: 3%;
     text-align: left;
     font-size: 200%;
     color:rgb(50,50,50);
+    border-radius: 10px;
 }
 #input-border{
     height: 2px;
@@ -86,6 +97,7 @@ html{
 #password-forget-wrapper{
     font-size: 250%;
 }
+/*sign up*/
 #sign-up-wrapper{
     padding:5% 0;
 }
@@ -102,6 +114,9 @@ html{
 .error-text{
     color:rgb(215,87,59);
     font-size:250%;
+}
+.error-text strong{
+    color:rgb(215,87,59);
 }
 /* footer */
 #footer{

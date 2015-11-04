@@ -24,20 +24,37 @@
             </div>
         </div>
         <div class="row contents" id="form-wrapper">
-            <form id="login">
+            <form id="register">
+                <!-- text fields -->
                 <div class="row form-contents" id="login-form-wrapper">
-                    <div class="col-xs-10 col-md-4 col-lg-4 centering" id="login-form">
-                        <input id="mail" type="text" name="mailaddress" value="" placeholder="メールアドレス">
-                        <div class="row centering" id="input-border"></div>
-                        <input id="pass" type="password" name="password" value="" placeholder="パスワード">
+                    <div class="row">
+                        <div class="col-xs-10 col-md-10 col-lg-10 centering">
+                            <strong>メールアドレス</strong>
+                        </div>
+                        <div class="col-xs-10 col-md-10 col-lg-10 centering">
+                            <input id="mail" type="text" name="mailaddress" value="" placeholder="メールアドレス">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10 col-md-10 col-lg-10 centering">
+                            <strong>パスワード</strong>
+                        </div>
+                        <div class="col-xs-10 col-md-10 col-lg-10 centering">
+                            <input id="pass" type="password" name="password" value="" placeholder="パスワード">
+                        </div>
                     </div>
                 </div>
+                <!-- error messages -->
                 <div class="row form-contents" id="login-error-wrapper">
                     <label for="mail" class="col-xs-12 col-md-12 col-lg-12 error-text" generated="true" />
                 </div>
                 <div class="row form-contents" id="login-error-wrapper2">
                     <label for="pass" class="col-xs-12 col-md-12 col-lg-12 error-text" generated="true" />
                 </div>
+                <div class="row form-contents" id="login-error-wrapper3">
+                    <p class="col-xs-12 col-md-12 col-lg-12 error-text" style="display:none;"><strong>既に存在するユーザーです</strong></p>
+                </div>
+                <!-- submit button -->
                 <div class="row form-contents" id="login-button-wrapper">
                     <div class="col-xs-10 col-md-4 col-lg-4 centering" style="padding: 0px;">
                         <button id="login-button" type="submit" name="name" value="新規登録">新規登録</button>
