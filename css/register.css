@@ -1,0 +1,132 @@
+/* initialize */
+*{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color:#FFFFFF;
+}
+html{
+    background-color:rgb(255,255,222);
+}
+.container{
+    width:100%;
+    padding:0;
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.centering{
+    margin: 0 auto;
+    float:none;
+}
+/* main */
+.contents{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.form-contents{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#main{
+    height:1500px;
+    background-image: url(../img/typing.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color: #B4E3ED;*/
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#main #logo-wrapper{
+    padding-top:10%;
+}
+#logo-wrapper{
+
+}
+#logo-img{
+    width:80%;
+    height:auto;
+}
+#login-word{
+    padding-bottom: 15%;
+}
+#login-word span{
+    font-size: 300%;
+}
+/*form*/
+#login-form-wrapper div{
+    padding-bottom: 1%;
+}
+#login-form-wrapper strong{
+    display: block;
+    text-align: left;
+    font-size: 220%;
+    color:black;
+}
+#login-form-wrapper input{
+    width: 100%;
+    height: 80px;
+    border: none;
+    padding-left: 3%;
+    text-align: left;
+    font-size: 200%;
+    color:rgb(50,50,50);
+    border-radius: 10px;
+}
+#input-border{
+    height: 2px;
+    width: 100%;
+    background: #F9F9F9;
+}
+#login-button{
+    width:100%;
+    height: 120px;
+    border: 0px;
+    background-color: rgb(215,87,59);
+    box-shadow: 0px 10px 0px 0px rgba(183,72,57,1);
+    font-size:250%;
+    border-radius: 10px;
+}
+#password-forget-wrapper{
+    font-size: 250%;
+}
+/*sign up*/
+#sign-up-wrapper{
+    padding:5% 0;
+}
+#signup-button{
+    padding:7% 0;
+    width:100%;
+    border: 0px;
+    color:rgba(125,179,209,1);
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 250%;
+    border-radius:15px;
+}
+/* validation style */
+.error-text{
+    color:rgb(215,87,59);
+    font-size:250%;
+}
+.error-text strong{
+    color:rgb(215,87,59);
+}
+/* footer */
+#footer{
+    height:100%;
+    bottom:0;
+    background-color:rgb(255,255,222);
+}
+#footer-wrapper {
+    padding-top:10px;
+    margin-bottom:5px;
+    color:rgb(100,100,100);
+    font-size:200%;
+}
