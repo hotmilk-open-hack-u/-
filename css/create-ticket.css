@@ -130,7 +130,7 @@ input#hangouts[type="checkbox"]:checked + #hangouts_text {
     color: #74bae3;
     height: 37px;
     width: 100%;
-	font-size: 13px;
+	font-size: 12px;
 	text-align:center;
 	padding:6px 0px 0px;
     background-color: #fff;
