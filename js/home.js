@@ -67,7 +67,7 @@ $(document).ready(function(){
     $.ajax({
         type: 'GET',
         url: 'http://210.140.71.3/tickets.json',
-        data: {"sort":"time","user_id":user_id,"offset":offset},
+        data: {"sort":"time","user_id":user_id,"offset":offset,"filter":"no_bought"},
         dataType: "json",
         success: function(data){
             console.log(data);
