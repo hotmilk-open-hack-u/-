@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .icon-inline-star-r,
+    .icon-inline-star-r-i {
+      margin: 0;
+      padding-left: 0.7em;
+    }
+
+    .media {
+      margin: 0;
+      padding: 7px 5px;
+    }
+
+    .review .title {
+      margin-bottom: 5px;
+    }
+
+    #template {
+      display: none;
+    }
+  </style>
+  <title>ちえぴったん | レビュー一覧</title>
+</head>
+
+<body>
+  <header role="banner">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
+          <a href="" class="icon-notice" aria-hidden="true"></a>
+        </button>
+        <a href="#" class="navbar-brand"></a>
+        <button type="button" class="navbar-toggle no-margin no-border">
+          <a href="search.html" class="icon-search" aria-hidden="true"></a>
+        </button>
+        <button type="button" class="navbar-toggle no-margin no-border">
+          <a href="create.html" class="icon-ticket" aria-hidden="true"></a>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div id="review">
+    </div>
+  </main>
+
+  <div id="template">
+    <div class="review">
+      <h4 class="text-color-red h4 title">{title}</h4>
+      <div class="media rounded z-depth-1 color-white">
+        <div class="media-left media-middle">
+          <img src="img/user-icon.jpg" alt="user icon" class="img-circle" width="64px" height="64px">
+          <small class="userName">{userName}</small>
+        </div>
+        <div class="media-body">
+          <p class="media-heading h6 score">{score}</p>
+          <p class="message no-margin">{message}</p>
+          <p class="no-margin pull-right color-text-hint">
+            <small class="time">{time}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="score">
+      <span class="icon-inline-star-r inc"></span>
+      <span class="icon-inline-star-r-i dsc"></span>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/reviewlist.js"></script>
+</body>
+
+</html>
