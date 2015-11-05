@@ -1,0 +1,100 @@
+#ticketpage {
+	background-color:rgb(255,255,222);
+	padding: 1em;
+}
+
+.marginbottom10px {
+	margin-bottom: 10px;
+}
+
+#thumbnail {
+	width: 90px;
+	height:90px;
+}
+
+#ticketTitle {
+    border-right: solid 1px #cccccc;
+    -moz-border-radius: 10px 10px 0px 0px;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    background-color: #cccccc;
+	margin-bottom: 0px;
+}
+
+#mainticket_title {
+	color: #fff;
+}
+
+.beginner_icon {
+	width: 40px;
+	height: 40px;
+	background: url(../img/icon/beginner-i.png) no-repeat;
+	background-size: contain;
+	margin-top: 15px;
+}
+
+.nobeginner_icon {
+	width: 40px;
+	height: 40px;
+    background: url(../img/icon/beginner.png) no-repeat;
+    background-size: contain;
+	margin-top: 15px;
+}
+
+.like_icon {
+    width: 40px;
+    height: 40px;
+    background: url(../img/icon/like.png) no-repeat;
+    background-size: contain;
+    margin-bottom: 15px;
+}
+
+.nolike_icon {
+    width: 40px;
+    height: 40px;
+    background: url(../img/icon/like-i.png) no-repeat;
+    background-size: contain;
+	margin-bottom: 15px;
+}
+
+#ticketdetail {
+	border-right: solid 1px #cccccc;
+	border-bottom: solid 4px #cccccc;
+    -moz-border-radius: 0px 0px 10px 10px;
+    -webkit-border-radius: 0px 0px 10px 10px;
+	background-color: white;
+	margin-top: 0px;
+	padding-bottom: 20px;
+}
+
+h6 {
+	color: #f44336;
+}
+
+.teach_button {
+    color: #fff;
+    width: 100%;
+    border: 0px;
+    background-color: #fcec0b;
+    border-color: #fcec0b;
+    box-shadow: 0px 2px 0px 0px rgba(223,203,74,1);
+    margin-top: 15px;
+    padding:10px 0px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+img#price,img#time,img#location {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
+}
+
+.blue-font {
+	color: #74bae3;
+}
+
+.tag {
+	margin: 0px 5px 5px 0px;
+}
+
+
