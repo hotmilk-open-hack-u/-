@@ -156,19 +156,26 @@ a:active { color:black; text-decoration:none }
     box-shadow: 0px 8px 0px 0px rgba(214,191,77,1);
     margin-bottom: 20px;
 }
+.ticket span, .ticket strong{
+    vertical-align: middle;
+}
 .ticket > div{
     padding:0;
 }
 .ticket div{
     display: block;
 }.ticket_img{
-    height: 25vh;
+    height: 300px;
     background-image: url(../img/ticket.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.ticket .title{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
 .ticket-info{
     padding-left: 10px;
     height:100%;
@@ -179,11 +186,10 @@ a:active { color:black; text-decoration:none }
     display: inline;
     padding-top: 2%;
     padding-left: 5%;
-    font-size:300%;
+    font-size:250%;
 }
 
 .t-info img{
-    margin-top:-5%;
     width:50px;
     height: 50px;
 }.t-info span{
