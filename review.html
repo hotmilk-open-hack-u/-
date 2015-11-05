@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .icon-inline-star,
+    .icon-inline-star-i {
+      margin: 0;
+      padding-left: 0.5em;
+    }
+
+    .icon-inline-star-r,
+    .icon-inline-star-r-i {
+      margin: 0;
+      padding-left: 0.3em;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    #user {
+      margin: 20px 0;
+    }
+
+    #review .jumbotron {
+      background: url('img/dammyman-big.jpg') center center;
+      background-size: cover;
+      border-radius: 4px 4px 0 0;
+    }
+
+    #review {
+      margin-bottom: 20px;
+    }
+
+    #template {
+      display: none;
+    }
+  </style>
+  <title>ちえぴったん | レビュー</title>
+</head>
+
+<body>
+  <header role="banner">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
+          <a href="" class="icon-notice" aria-hidden="true"></a>
+        </button>
+        <a href="#" class="navbar-brand"></a>
+        <button type="button" class="navbar-toggle no-margin no-border">
+          <a href="search.html" class="icon-search" aria-hidden="true"></a>
+        </button>
+        <button type="button" class="navbar-toggle no-margin no-border">
+          <a href="create.html" class="icon-ticket" aria-hidden="true"></a>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div id="user" class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="row">
+          <img src="img/user-icon.jpg" alt="user icon" class="img-circle img-responsive col-xs-4" width="96px" height="96px">
+          <div class="col-xs-8">
+            <h4 class="color-red h4 no-margin">山田 としお</h4>
+            <h5 class="color-red h5 no-margin">OZPA</h5>
+            <h6>
+              <span class="score">
+                <span class="icon-inline-star-r-i"></span>
+                <span class="icon-inline-star-r-i"></span>
+                <span class="icon-inline-star-r-i"></span>
+                <span class="icon-inline-star-r-i"></span>
+                <span class="icon-inline-star-r-i"></span>
+              </span>
+              <span class="points color-red">3.2</span>
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="review">
+      <div class="rounded z-depth-1 bg-color-white" style="margin-bottom: 20px; padding-bottom: 10px;">
+        <div class="jumbotron">
+          <h3 class="text-center h3 color-white">飲み会で使える一発芸教えて！</h3>
+        </div>
+        <div>
+          <h5 class="text-center color-red h5">評価</h5>
+          <p id="reviewScoreUi" class="text-center h3">
+            <span class="icon-inline-star-i" data-id="1"></span>
+            <span class="icon-inline-star-i" data-id="2"></span>
+            <span class="icon-inline-star-i" data-id="3"></span>
+            <span class="icon-inline-star-i" data-id="4"></span>
+            <span class="icon-inline-star-i" data-id="5"></span>
+          </p>
+          <input type="hidden" id="reviewScore" value=0>
+          <hr>
+          <h5 class="text-center color-red h5">ひとこと</h5>
+          <textarea id="reviewComment" class="input-field color-blue center-block" rows="4" style="width: 95%;" placeholder="ありがとうございました。"></textarea>
+        </div>
+      </div>
+      <button type="button" id="submit" class="btn btn-block color-red">レビューを送る</button>
+    </div>
+  </main>
+
+  <div id="template">
+    <div class="review">
+      <h4 class="text-color-red h4 title">{title}</h4>
+      <div class="media rounded z-depth-1 color-white">
+        <div class="media-left media-middle">
+          <img src="img/user-icon.jpg" alt="user icon" class="img-circle" width="64px" height="64px">
+          <small class="userName">{userName}</small>
+        </div>
+        <div class="media-body">
+          <p class="media-heading h6 score">{score}</p>
+          <p class="message no-margin">{message}</p>
+          <p class="no-margin pull-right color-text-hint">
+            <small class="time">{time}</small>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="score">
+      <span class="icon-inline-star-r inc"></span>
+      <span class="icon-inline-star-r-i dsc"></span>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/review.js"></script>
+</body>
+
+</html>
