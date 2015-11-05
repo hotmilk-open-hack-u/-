@@ -138,6 +138,7 @@ a:active { color:black; text-decoration:none }
     background-color:rgb(250,225,52);
 }
 .ticket{
+    overflow: hidden;
     border-radius: 20px;
     background-color: white;
     box-shadow: 0px 8px 0px 0px rgba(214,191,77,1);
