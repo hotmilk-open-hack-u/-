@@ -6,6 +6,30 @@
   var maxScore = 5;
 
   var utils = {
+    getUser: function(userId) {
+      var d = $.Deferred();
+      $.ajax({
+        'type': 'GET',
+        'url': 'http://210.140.71.3/users/' + userId
+      }).done(function(data) {
+        d.resolve(data);
+      }).fail(function(jqXHR) {
+        d.reject(jqXHR.statusText);
+      });
+      return d.promise();
+    },
+    getTicket: function(ticketId) {
+      var d = $.Deferred();
+      $.ajax({
+        'type': 'GET',
+        'url': 'http://210.140.71.3/tickets/' + ticketId
+      }).done(function(data) {
+        d.resolve(data);
+      }).fail(function(jqXHR) {
+        d.reject(jqXHR.statusText);
+      });
+      return d.promise();
+    },
     postReview: function(user, review, ticket_id) {
       var d = $.Deferred();
       $.ajax({
@@ -44,45 +68,42 @@
           $src.children().eq(i).removeClass('icon-inline-star');
         }
         $dst.val(score);
-      },
-      get: function(src, model) {
-
       }
     },
     user: {
       computedScore: function(el, score) {
-        var $template = $('#template > .' + el).clone(),
-          $dst = [],
-          i = 0;
-
-        for (; i < score; i++) {
-          $dst.push($('.inc', $template).clone());
-        }
-        for (; i < maxScore; i++) {
-          $dst.push($('.dsc', $template).clone());
-        }
-        return $dst;
+        // var $template = $('#template > .' + el).clone(),
+        //   $dst = [],
+        //   i = 0;
+        //
+        // for (; i < score; i++) {
+        //   $dst.push($('.inc', $template).clone());
+        // }
+        // for (; i < maxScore; i++) {
+        //   $dst.push($('.dsc', $template).clone());
+        // }
+        // return $dst;
       },
       add: function(el, data, model) {
-        var $template = $('#template .' + el).clone(),
-          $target = $('#' + el),
-          $reviews = [],
-          length = data.length;
-
-        data.forEach(function(review, idx) {
-          $reviews.push(view.bind($template.clone(), model(review)));
-          if (idx < length - 1) {
-            $reviews.push($('<hr>'));
-          }
-        });
-        $target.append($reviews);
+        // var $template = $('#template .' + el).clone(),
+        //   $target = $('#' + el),
+        //   $reviews = [],
+        //   length = data.length;
+        //
+        // data.forEach(function(review, idx) {
+        //   $reviews.push(view.bind($template.clone(), model(review)));
+        //   if (idx < length - 1) {
+        //     $reviews.push($('<hr>'));
+        //   }
+        // });
+        // $target.append($reviews);
       }
     }
   };
 
   var controller = {
     send: function(score, comment) {
-      var score = parseInt(score, 10);
+      score = parseInt(score, 10);
       if (score === 0) {
         // TBD
         return false;
@@ -98,7 +119,7 @@
         location.href('detail.html?ticket_id=' + ticketId);
       });
     }
-  }
+  };
 
   $(function() {
     $('#submit').on('click', function() {
@@ -108,6 +129,11 @@
     $('#reviewScoreUi span').on('click', function() {
       view.review.computedScore($(this).data('id'), $('#reviewScoreUi'), $('#reviewScore'));
     });
+
+    // utils.getTicket(ticketId)
+    //   .then(function(ticket) {
+    //     return utils.getUser(ticket.user.id);
+    //   })
 
     // utils.getReviewList(userId)
     //   .then(function(data) {
