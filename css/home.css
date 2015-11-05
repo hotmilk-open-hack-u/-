@@ -17,6 +17,12 @@ body{
     float:none;
     text-align: center;
 }
+button{outline : none;}
+a{color:black; text-decoration:none;outline : none;}
+a:link { color:black; text-decoration:none }
+a:visited { color:black; text-decoration:none }
+a:hover { color:black; text-decoration:none }
+a:active { color:black; text-decoration:none }
 /*header*/
 #header{
     height:130px;
@@ -29,12 +35,24 @@ body{
     height:100%;
 }
 #logo-img{
+    /*padding-top: 10px;
+    padding-bottom: 10px;*/
+}
+#header-wrapper img{
     padding-top: 10px;
     padding-bottom: 10px;
 }
 #logo-img img{
     width:auto;
     height:100%;
+}
+#icon-notice img{
+    float:left;
+    padding:20px 20px 20px 0px;
+}
+#icons img{
+    float:right;
+    padding:20px 0px 20px 20px;
 }
 /*main*/
 #main{
@@ -90,27 +108,38 @@ body{
     display: inline;
 }
 .l_btn{
+    margin-right: -5px;
     height:100px;
     width:100%;
+    border:5px;
     border-color: rgb(250,225,52);
     border-style: solid;
     box-shadow: 0px 0px 0px 0px white;
-    font-size: 180%;
+    font-size: 35px;
 }
-#teach_ticket_btn{
+.white_back{
     color:rgb(250,225,52);
     background-color: white;
+}
+.yellow_back{
+    color:white;
+    background-color: rgb(250,225,52);
+}
+#teach_ticket_btn{
+    margin-right: -5px;
     border-radius: 15px 0px 0px 15px;
 }
 #learn_ticket_btn{
-    color:white;
-    background-color: rgb(250,225,52);
+    margin-left: -5px;
     border-radius: 0px 15px 15px 0px;
 }
 
 /*contents*/
 #contents-wrapper{
     background-color:rgb(250,225,52);
+}
+#contents-title{
+    padding:15px;
 }
 #contents-title span{
     font-size: 50px;
@@ -124,75 +153,67 @@ body{
 .ticket{
     border-radius: 20px;
     background-color: white;
-    box-shadow: 0px 10px 0px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 8px 0px 0px rgba(214,191,77,1);
+    margin-bottom: 20px;
 }
-
 .ticket > div{
     padding:0;
 }
 .ticket div{
     display: block;
-}
-#ticket_img{
+}.ticket_img{
     height: 25vh;
     background-image: url(../img/ticket.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .ticket-info{
     padding-left: 10px;
     height:100%;
 }.ticket-info .row{
     padding-top:10px;
     height:24.99%;
-}
-.ticket-info strong{
+}.ticket-info strong{
     display: inline;
     padding-top: 2%;
     padding-left: 5%;
     font-size:300%;
 }
-#price img{
+
+.t-info img{
     margin-top:-5%;
     width:50px;
     height: 50px;
-}#price span{
+}.t-info span{
     display: inline;
     font-size: 250%;
     color: rgb(125,179,209);
 }
-#time img{
-    margin-top:-5%;
-    width:50px;
-    height: 50px;
-}#time span{
-    display: inline;
-    font-size: 250%;
-    color: rgb(125,179,209);
-}
-#accountimage{
+
+.accountimage{
     float: left;
-}
-#accountimage img{
+}.accountimage img{
     display: inline;
     width:50px;
     height:50px;
     border-radius: 50%;
-}#accountimage strong{
+}.accountimage strong{
     display: inline;
     font-size:180%;
 }
-#date strong{
+
+.date strong{
     display: inline;
     font-size:180%;
 }
-#apply img{
+
+.apply img{
     display: inline;
     width:50%;
     height:auto;
-}
-#apply strong{
+}.apply strong{
     display: inline;
     font-size: 180%;
 }

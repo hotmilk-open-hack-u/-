@@ -16,9 +16,19 @@
 <!-- header -->
 <div class="container" id="header">
     <div class="row" id="header-wrapper">
-        <div class="col-xs-8 col-md-8 col-lg-8 centering" id="logo-img">
-            <a href="home.html"><img src="img/logo-02.png" alt="logo" /></a>
+        <div class="col-xs-4 col-md-4 col-lg-4" id="icon-notice">
+            <a href="home.html"><img src="img/icon/notice.png" alt="notice_icon" /></a>
         </div>
+        <div class="col-xs-4 col-md-4 col-lg-4" id="logo-img">
+            <div class="centering">
+                <a href="home.html"><img src="img/logo-02.png" alt="logo" /></a>
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-lg-4" id="icons">
+            <a href="create.html"><img src="img/icon/ticket.png" alt="ticket_icon" /></a>
+            <a href="search.html"><img src="img/icon/search.png" alt="search_icon" /></a>
+        </div>
+
     </div>
 </div>
 <div class="container" id="main">
@@ -29,7 +39,12 @@
         </div>
         <div class="row">
             <div class="col-xs-8 col-md-8 col-lg-8 centering">
-                <strong>★ </strong><strong>★ </strong><strong>★ </strong><strong>★ </strong><strong>★ </strong><strong>3.2</strong>
+                <strong>{{user_review >= 1.0 ? '★':'☆' }} </strong>
+                <strong>{{user_review >= 2.0 ? '★':'☆' }} </strong>
+                <strong>{{user_review >= 3.0 ? '★':'☆' }} </strong>
+                <strong>{{user_review >= 4.0 ? '★':'☆' }} </strong>
+                <strong>{{user_review >= 5.0 ? '★':'☆' }} </strong>
+                <strong>{{user_review}}</strong>
             </div>
         </div>
         <div class="row">
@@ -48,30 +63,30 @@
         <div class="row">
             <div class="col-xs-4 col-md-4 col-lg-4">
                 <div class="centering">
-                    <button class="btn_1" type="button" name="button"><img src="img/icon/teach.png" alt="teach"/></button>
+                    <button class="btn_1" onclick="location.href='teached.html'" type="button" name="button"><img src="img/icon/teach.png" alt="teach"/></button>
                 </div>
             </div>
             <div class="col-xs-4 col-md-4 col-lg-4">
                 <div class="centering">
-                    <button class="btn_1" type="button" name="button"><img src="img/icon/learn.png" alt="teach"/></button>
+                    <button class="btn_1" onclick="location.href='learned.html'" type="button" name="button"><img src="img/icon/learn.png" alt="teach"/></button>
                 </div>
             </div>
             <div class="col-xs-4 col-md-4 col-lg-4">
                 <div class="centering">
-                    <button class="btn_1" type="button" name="button"><img src="img/icon/save.png" alt="teach"/></button>
+                    <button class="btn_1" onclick="location.href='favorite.html'" type="button" name="button"><img src="img/icon/save.png" alt="teach"/></button>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-8 col-md-8 col-lg-8 centering">
-                <div class="row">
+                <div id="tabs" class="row">
                     <div class="col-xs-6 col-md-6 col-lg-6">
-                        <button id="teach_ticket_btn" type="button" class="l_btn">
+                        <button v-on:click="isT = true" id="teach_ticket_btn" type="button" class="l_btn {{isT ? 'white_back':'yellow_back'}}">
                             <img src="" alt="" /><strong>教えよう！</strong>
                         </button>
                     </div>
                     <div class="col-xs-6 col-md-6 col-lg-6">
-                        <button id="learn_ticket_btn" type="button" class="l_btn">
+                        <button v-on:click="isT = false" id="learn_ticket_btn" type="button" class="l_btn {{isT ? 'yellow_back':'white_back'}}">
                             <img src="" alt="" /><strong>学ぼう！</strong>
                         </button>
                     </div>
@@ -82,42 +97,44 @@
     <!-- contents -->
     <div id="contents-wrapper" class="row">
         <div id="contents-title" class="row">
-            <span>発行中の</span><img src="img/teach-plz-i.png" alt="teach_logo" />
+            <span>{{isT ? 'あなたにオススメの':'発行中の'}}</span><img src="img/teach-plz-i.png" alt="teach_logo" />
         </div>
         <div id="contents" class="row">
-            <div class="row ticket">
-                <div id="ticket_img" class="col-xs-4 col-md-4 col-lg-4">
+            <div class="row ticket" v-for="ticket in tickets">
+                <a href="detail.html?ticket_id={{ticket.id}}">
+                <div class="ticket_img col-xs-4 col-md-4 col-lg-4">
                     <!-- background img -->
                 </div>
-                <div class="col-xs-8 col-md-8 col-lg-8 ticket-info">
-                    <div id="title" class="row">
-                        <strong>あいうえおかきくけこ</strong>
+                <div class=" ticket-info col-xs-8 col-md-8 col-lg-8">
+                    <div class="title row">
+                        <strong>{{ticket.title}}</strong>
                     </div>
                     <div class="row">
-                        <div id="price" class="col-xs-6 col-md-6 col-lg-6">
-                            <img src="img/icon/price.png" alt="price"/><span>  300円</span>
+                        <div class="t-info col-xs-6 col-md-6 col-lg-6">
+                            <img src="img/icon/price.png" alt="price"/><span>  {{ticket.price}}円</span>
                         </div>
-                        <div id="time" class="col-xs-6 col-md-6 col-lg-6">
-                            <img src="img/icon/time.png" alt="price"/><span>  0.5h</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="time" class="col-xs-6 col-md-6 col-lg-6">
-                            <img src="img/icon/location.png" alt="location"/><span>  Skype, 新宿</span>
+                        <div class="t-info col-xs-6 col-md-6 col-lg-6">
+                            <img src="img/icon/time.png" alt="price"/><span>  {{ticket.time}}h</span>
                         </div>
                     </div>
                     <div class="row">
-                        <div id="accountimage" class="col-xs-5 col-md-5 col-lg-5">
-                            <img src="img/user-icon.jpg" alt="" /><strong>アカウント名</strong>
+                        <div class="t-info col-xs-12 col-md-12 col-lg-12">
+                            <img src="img/icon/location.png" alt="location"/><span>  {{ticket.skype ? 'Skype':''}} {{ticket.offline_place}}</span>
                         </div>
-                        <div id="date" class="col-xs-4 col-md-4 col-lg-4">
-                            <strong>2015.11.07</strong>
+                    </div>
+                    <div class="row">
+                        <div class="accountimage col-xs-5 col-md-5 col-lg-5">
+                            <img src="img/user-icon.jpg" alt="" /><strong>{{ticket.user.username}}</strong>
                         </div>
-                        <div id="apply" class="col-xs-3 col-md-3 col-lg-3">
-                            <img src="img/icon/person.png" alt="person" /><strong>1</strong>
+                        <div class="date col-xs-4 col-md-4 col-lg-4">
+                            <strong>{{ticket.updated_at.substr(0,10)}}</strong>
+                        </div>
+                        <div class="apply col-xs-3 col-md-3 col-lg-3">
+                            <img src="img/icon/person.png" alt="person" /><strong>{{ticket.stocked_num}}</strong>
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     </div>
