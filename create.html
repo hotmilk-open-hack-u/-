@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>ちえぴったん</title>
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/create-ticket.css">
+		<link rel="stylesheet" href="./css/common.css">
+	</head>
+	<body>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/create_ticket/send-json.js"></script>
+		<script src="./js/create_ticket/create-tag.js"></script>
+		<script src="./js/jquery-ui.min.js"></script>
+		<script src="./js/create_ticket/change-icon.js"></script>
+		<header role="banner">
+		  <nav class="navbar navbar-default">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
+				<a href="" class="icon-notice" aria-hidden="true"></a>
+			  </button>
+			  <a href="#" class="navbar-brand"></a>
+			  <button type="button" class="navbar-toggle no-margin no-border">
+				<a href="" class="icon-search" aria-hidden="true"></a>
+			  </button>
+			  <button type="button" class="navbar-toggle no-margin no-border">
+				<a href="" class="icon-ticket" aria-hidden="true"></a>
+			  </button>
+			</div>
+		  </nav>
+		</header>
+		<div id="ticketpage">
+			<h4 class="text-center"> 新しい<img id="oshiete" src="./img/teach-plz-r.png" alt="おしえて！">を作成</h4>
+			<form role="form" id="form">
+				<div id="ticketTitle" class="container"> 
+					<div class="clearfix form-group">
+						<input type="checkbox" name="beginner" id="beginner">
+						<label id="beginner_icon" class="pull-right" for="beginner"></label>
+					</div>
+					<div class="form-group">
+						<h6 class="text-center">
+							<label for="ticketTitle">タイトル</label>
+						<input type="text" class="form-control" id="ticket_title" placeholder="チケットのタイトルを入力" autofocus required>
+						</h6>
+					</div>
+					<div class="clearfix form-group">
+                        <input type="file" name="select_file" id="select_file">
+                        <label id="file_icon" class="pull-right" for="select_file">
+						</label>
+					</div>
+				</div>
+				<div id="ticketForm" class="container">
+					<div class="form-group">
+						<h6 class="text-center"><label for="ticketContent">教えて欲しい内容</label></h6>
+						<textarea class="form-control" id="ticket_content" rows="6" cols="40" wrap="soft" required></textarea>
+					</div>
+					<hr>
+					<h6 class="text-center"><label for="ticketInformation">希望事項</label></h6>
+					<div class="form-group">
+						<label class="blue-font" for="ticketPrice">30分あたりの料金</label>
+						<select class="form-control" id="ticket_price" required>
+							<option value="300">300 円</option>
+							<option value="400">400 円</option>
+							<option value="500">500 円</option>
+							<option value="600">600 円</option>
+							<option value="700">700 円</option>
+							<option value="800">800 円</option>
+							<option value="900">900 円</option>
+							<option value="1000">1000 円</option>
+							<option value="1100">1100 円</option>
+							<option value="1200">1200 円</option>
+							<option value="1300">1300 円</option>
+							<option value="1400">1400 円</option>
+							<option value="1500">1500 円</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="blue-font" for="ticketTime">所要時間</label>
+						<select class="form-control" id="ticket_time" required>
+							<option value="0.5">0.5 時間</option>
+							<option value="1.0">1.0 時間</option>
+							<option value="1.5">1.5 時間</option>
+							<option value="2.0">2.0 時間</option>
+							<option value="2.5">2.5 時間</option>
+							<option value="3.0">3.0 時間</option>
+						</select>
+						<small id="total_price" class="pull-right">総額 
+						<small id="calculate_price">300</small>
+						<script src="./js/create_ticket/calculate-price.js"></script>
+						 円</small>
+					</div>
+					<div class="form-horizontal">
+						<div class="form-group">
+							<h5>
+								<label class="col-xs-4 col-sm-2 col-md-2 blue-font ticket-location-font" for="ticketLocation">希望場所</label>
+								<small class="col-xs-8 col-sm-10 col-md-10">複数選択可</small>
+							</h5>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-4 col-sm-2 col-md-2">
+								<img id="online_icon" src="./img/icon/online.png">
+								<label class="blue-font online-font">オンライン</label>
+							</div>
+							<div class="col-xs-4 col-sm-5 col-md-5">
+								<input type="checkbox" name="skype" id="skype">
+								<label for="skype" name="skype_text" id="skype_text"><img id="skype_icon" src="./img/icon/skype.png">Skype</label>
+							</div>
+							<div class="col-xs-4 col-sm-5 col-md-5 no-padding-left">	
+								<input type="checkbox" name="hangouts" id="hangouts">
+								<label for="hangouts" name="hangouts_text" id="hangouts_text"><img id="hangouts_icon"     src="./img/icon/hangouts.png">Hangouts</label>
+							</div>  
+						</div>  
+						<div class="form-group">
+							<div class="col-xs-4 col-sm-2 col-md-2">
+								<img id="offline_icon" src="./img/icon/offline.png">
+								<label class="blue-font offline-font">オフライン</label>
+							</div>
+							<div class="col-xs-8 col-smi-10 col-md-10">
+								<input type="text" class="form-control" name="offline_location" id="offline_location">
+							</div>
+						</div>
+					</div>
+					<hr>
+					<h6 class="text-center"><label for="ticketTag">タグ付け</label></h6>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-xs-9 col-sm-9 col-md-9 col-sm-offset-1 col-md-offset-1">
+								<input type="text" class="form-control" id="ticket_tag" placeholder="関連タグを入力" required>
+							</div>
+							<div class="col-xs-1 col-sm-1 col-md-1">
+								<button id="add" type="button">追加</button>
+							</div>
+						</div>
+					</div>
+					<div id="add_tag">
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<button class="create-button" id="button" type="button"><strong>完了</strong></button>
+						</div>
+					</div>
+				</div>
+			</form>
+		<!--<div class="footer">
+			</div>-->
+		</div>
+	</body>
+</html>
