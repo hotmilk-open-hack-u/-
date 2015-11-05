@@ -1,0 +1,219 @@
+/*initialize*/
+body{
+    background-color: rgb(250,225,52);
+}
+.container{
+    width:100%;
+    height:300vh;
+    margin:0px;
+    padding:0px;
+}
+.row{
+    margin:0px;
+    padding:0px;
+}
+.centering{
+    margin: 0 auto;
+    float:none;
+    text-align: center;
+}
+button{outline : none;}
+a{color:black; text-decoration:none;outline : none;}
+a:link { color:black; text-decoration:none }
+a:visited { color:black; text-decoration:none }
+a:hover { color:black; text-decoration:none }
+a:active { color:black; text-decoration:none }
+/*header*/
+#header{
+    height:130px;
+    position: absolute;
+    top:0;
+    background-color: rgb(215,87,59);
+    box-shadow: 0px 10px 0px 0px rgba(183,72,57,1);
+}
+#header *{
+    height:100%;
+}
+#logo-img{
+    /*padding-top: 10px;
+    padding-bottom: 10px;*/
+}
+#header-wrapper img{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#logo-img img{
+    width:auto;
+    height:100%;
+}
+#icon-notice img{
+    float:left;
+    padding:20px 20px 20px 0px;
+}
+#icons img{
+    float:right;
+    padding:20px 0px 20px 20px;
+}
+/*main*/
+#main{
+    margin-top: 140px;
+}
+/*userinfo*/
+#userinfo{
+    background-image: url(../img/typing.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    /*background-color: #B4E3ED;*/
+    background-color: rgba(255, 255, 255, 0.6);
+}
+#userinfo strong{
+    text-align: center;
+    font-size: 30px;
+    color:white;
+}
+#userinfo span{
+    text-align: center;
+    font-size: 50px;
+    color:white;
+}
+#userinfo img{
+    width:300px;
+    height:300px;
+    border-radius: 50%;
+    border: 10px;
+    border-color: white;
+    border-style: solid;
+}
+
+/*links*/
+#links{
+    background-color: white;
+    padding-bottom: 20px;
+}
+#links .row > div{
+    padding-left:0px;
+    padding-right:0px;
+}
+.btn_1{
+    width:100%;
+    height:200px;
+    border:none;
+    background-color: white;
+    display: inline;
+}
+.l_btn{
+    margin-right: -5px;
+    height:100px;
+    width:100%;
+    border:5px;
+    border-color: rgb(250,225,52);
+    border-style: solid;
+    box-shadow: 0px 0px 0px 0px white;
+    font-size: 35px;
+}
+.white_back{
+    color:rgb(250,225,52);
+    background-color: white;
+}
+.yellow_back{
+    color:white;
+    background-color: rgb(250,225,52);
+}
+#teach_ticket_btn{
+    margin-right: -5px;
+    border-radius: 15px 0px 0px 15px;
+}
+#learn_ticket_btn{
+    margin-left: -5px;
+    border-radius: 0px 15px 15px 0px;
+}
+
+/*contents*/
+#contents-wrapper{
+    background-color:rgb(250,225,52);
+}
+#contents-title{
+    padding:15px;
+}
+#contents-title span{
+    font-size: 50px;
+    color: white;
+}
+#contents-title img{
+    width:200px;
+    height:auto;
+    margin-top:-40px;
+}
+.ticket{
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 8px 0px 0px rgba(214,191,77,1);
+    margin-bottom: 20px;
+}
+.ticket > div{
+    padding:0;
+}
+.ticket div{
+    display: block;
+}.ticket_img{
+    height: 25vh;
+    background-image: url(../img/ticket.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ticket-info{
+    padding-left: 10px;
+    height:100%;
+}.ticket-info .row{
+    padding-top:10px;
+    height:24.99%;
+}.ticket-info strong{
+    display: inline;
+    padding-top: 2%;
+    padding-left: 5%;
+    font-size:300%;
+}
+
+.t-info img{
+    margin-top:-5%;
+    width:50px;
+    height: 50px;
+}.t-info span{
+    display: inline;
+    font-size: 250%;
+    color: rgb(125,179,209);
+}
+
+.accountimage{
+    float: left;
+}.accountimage img{
+    display: inline;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}.accountimage strong{
+    display: inline;
+    font-size:180%;
+}
+
+.date strong{
+    display: inline;
+    font-size:180%;
+}
+
+.apply img{
+    display: inline;
+    width:50%;
+    height:auto;
+}.apply strong{
+    display: inline;
+    font-size: 180%;
+}
