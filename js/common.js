@@ -11,6 +11,12 @@
           return hash[1];
         }
       }
+    },
+    get me() {
+      return {
+        userId: window.localStorage.getItem('user_id'),
+        token: window.localStorage.getItem('token')
+      };
     }
   };
 
