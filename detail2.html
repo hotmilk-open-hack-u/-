@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ちえぴったん | チケット詳細</title>
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/ticket-detail.css">
+	<link rel="stylesheet" href="./css/common.css">
+	<script src="./js/common.js"></script>
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/vue.min.js"></script>
+	<script src="./js/detail2.js"></script>
+</head>
+<body>
+<header role="banner">
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
+				<a href="" class="icon-notice" aria-hidden="true"></a>
+			</button>
+			<a href="#" class="navbar-brand"></a>
+			<button type="button" class="navbar-toggle no-margin no-border">
+				<a href="" class="icon-search" aria-hidden="true"></a>
+			</button>
+			<button type="button" class="navbar-toggle no-margin no-border">
+				<a href="" class="icon-ticket" aria-hidden="true"></a>
+			</button>
+		</div>
+	</nav>
+</header>
+<div id="main">
+	<div id="applylist">
+		<h3>{{ticketinfo.bought_user_id == null?"教えてくれるユーザー":"教わったユーザー"}}</h3>
+		<!-- 教えてくれるユーザー -->
+		<div class="form-group clearfix wr_message" v-for="apply in applylist" v-if="ticketinfo.bought_user_id == null">
+			<div class="row">
+				<p class="gray-font col-xs-3 col-sm-3 col-md-3 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 ap_name">{{apply.user.last_name}} {{apply.user.first_name}}</p>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 review">
+					<img class="little_thumbnail center-block" src="./img/icon/thumbnail.png" alt="thumbnail">
+					<p class="little_evaluation text-center">
+						<strong>{{apply.user.review_ave >= 1.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave >= 2.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave >= 3.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave >= 4.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave >= 5.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave}}</strong>
+					</p>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<p>{{apply.comment}}</p>
+					<small class="gray-font">{{apply.created_at.substr(0,10)}}</small>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3">
+					<button type="button" class="teach_button teach_button_little" onclick="teachRequest({{apply.user.id}})">
+						<strong>教わる！</strong>
+					</button>
+					<!-- チャットを開くボタン (チャット実装時に使用)
+					<button type="button" name="message_button" id="message_button">
+						<label id="message_icon" for="message"></label>
+					</button>
+					-->
+				</div>
+			</div>
+		</div>
+		<!-- 教わったユーザーデータ -->
+		<div class="form-group clearfix wr_message" v-if="ticketinfo.bought_user_id != null">
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 review">
+					<img class="little_thumbnail center-block" src="./img/icon/thumbnail.png" alt="thumbnail">
+					<p class="little_evaluation text-center">
+						<strong>{{bought_user_info.review_ave >= 1.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave >= 2.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave >= 3.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave >= 4.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave >= 5.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave}}</strong>
+					</p>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<span class="ap_name" style="font-size:2em;padding-top:0.5em">{{bought_user_info.last_name}} {{bought_user_info.first_name}}</span>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3">
+					<button type="button" class="teach_button teach_button_little" onclick="location.href='user.html?user_id={{bought_user_info.id}}'">
+						<strong>レビューする</strong>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="ticketpage">
+		<div id="ticketTitle" class="container">
+			<div class="clearfix">
+				<button type="button" class="pull-right" id="edit">編集
+			</div>
+			<h3 id="mainticket_title" class="text-center">
+				<strong>{{ticketinfo.title}}</strong>
+			</h3>
+			<div class="clearfix">
+				<img src="./img/icon/like.png" class="pull-right like_icon" alt="like">
+			</div>
+		</div>
+		<!-- ここまでチケットのタイトル -->
+		<div id="ticketdetail" class="container">
+			<div class="form-group">
+				<h6 class="text-center"><label for="ticketContent">教えて欲しい内容</label></h6>
+				<p class="blue-font">{{ticketinfo.body}}</p>
+			</div>
+			<hr>
+			<h6 class="text-center"><label for="ticketInformation">希望事項</label></h6>
+			<div class="blue-font row clearfix marginbottom10px">
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<p class="blue-font pull-right">希望料金</p>
+					<img id="price" class="pull-right" src="./img/icon/price.png" alt="money">
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<p id="hope_price_time">{{ticketinfo.time}}h</p>
+				</div>
+			</div>
+			<div class="blue-font row clearfix marginbottom10px">
+				<div class="col-xs-6 col-sm-6 col-md-6 blue-font">
+					<p class="pull-right">所要時間</p>
+					<img id="time" class="pull-right" src="./img/icon/time.png" alt="money">
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<p id="hope_time">{{ticketinfo.time}}h</p>
+				</div>
+			</div>
+			<div class="blue-font row clearfix marginbottom10px">
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<p class="pull-right">希望場所</p>
+					<img id="location" class="pull-right" src="./img/icon/location.png" alt="money">
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6">
+					<p ="hope_location">{{ticketinfo.skype ? 'Skype':''}} {{ticketinfo.offline_place}}</p>
+				</div>
+			</div>
+			<hr>
+				<!-- ここまで希望事項 -->
+
+			<h6 class="text-center"><label for="ticketTag">タグ</label></h6>
+			<div id="taglist" >
+				<div class="tag color-blue" v-for="tag in ticketinfo.tags">{{tag.name}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

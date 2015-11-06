@@ -13,6 +13,7 @@ $(function(){
 			usertickets:[]
 		}
 	});
+	// そのチケットのデータの取得
 	$.ajax({
 		type: 'get',
 		url: 'http://210.140.71.3/tickets/'+ticketID+'.json',//' + ticketID + '.json',
@@ -51,5 +52,4 @@ $(function(){
 			console.log(xhr,textStatus,errorThrown);
 		}
 	});
-
 });

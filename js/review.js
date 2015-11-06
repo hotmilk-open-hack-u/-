@@ -1,7 +1,7 @@
 (function(window, $) {
   'use strict';
 
-  var ticketId = window.common.getQueryString('ticket_id');
+  var ticketId = parseInt(window.common.getQueryString('ticket_id'), 10);
   var token = window.common.me.token;
   var maxScore = 5;
 
@@ -10,7 +10,7 @@
       var d = $.Deferred();
       $.ajax({
         'type': 'GET',
-        'url': 'http://210.140.71.3/users/' + userId
+        'url': 'http://210.140.71.3/users/' + userId + '.json'
       }).done(function(data) {
         d.resolve(data);
       }).fail(function(jqXHR) {
@@ -22,7 +22,7 @@
       var d = $.Deferred();
       $.ajax({
         'type': 'GET',
-        'url': 'http://210.140.71.3/tickets/' + ticketId
+        'url': 'http://210.140.71.3/tickets/' + ticketId + '.json'
       }).done(function(data) {
         d.resolve(data);
       }).fail(function(jqXHR) {
@@ -30,16 +30,12 @@
       });
       return d.promise();
     },
-    postReview: function(user, review, ticket_id) {
+    postReview: function(data) {
       var d = $.Deferred();
       $.ajax({
         'type': 'POST',
-        'url': 'http://210.140.71.3/reviews',
-        'data': {
-          'user': user,
-          'review': review,
-          'ticket_id': ticket_id
-        }
+        'url': 'http://210.140.71.3/reviews.json',
+        'data': data
       }).done(function(data) {
         d.resolve(data);
       }).fail(function(jqXHR) {
@@ -59,6 +55,10 @@
       return $el;
     },
     review: {
+      add: function(target, data) {
+        var $target = $('#' + target);
+        $target.text(data);
+      },
       computedScore: function(score, $src, $dst) {
         var i = 0;
         for (; i < score; i++) {
@@ -71,53 +71,42 @@
       }
     },
     user: {
-      computedScore: function(el, score) {
-        // var $template = $('#template > .' + el).clone(),
-        //   $dst = [],
-        //   i = 0;
-        //
-        // for (; i < score; i++) {
-        //   $dst.push($('.inc', $template).clone());
-        // }
-        // for (; i < maxScore; i++) {
-        //   $dst.push($('.dsc', $template).clone());
-        // }
-        // return $dst;
-      },
-      add: function(el, data, model) {
-        // var $template = $('#template .' + el).clone(),
-        //   $target = $('#' + el),
-        //   $reviews = [],
-        //   length = data.length;
-        //
-        // data.forEach(function(review, idx) {
-        //   $reviews.push(view.bind($template.clone(), model(review)));
-        //   if (idx < length - 1) {
-        //     $reviews.push($('<hr>'));
-        //   }
-        // });
-        // $target.append($reviews);
-      }
+      computedScore: function(el, score) {},
+      add: function(el, data, model) {}
     }
   };
 
   var controller = {
+    init: function() {
+      utils.getTicket(ticketId)
+        .then(function(ticket) {
+          view.review.add('ticketTitle', ticket.title);
+          return utils.getUser(ticket.user.id);
+        })
+        .then(function(user) {
+          console.log(user);
+        });
+    },
     send: function(score, comment) {
       score = parseInt(score, 10);
       if (score === 0) {
         // TBD
         return false;
       }
-      utils.postReview({
+      var data = {
+        'user': {
           'token': token
-        }, {
+        },
+        'review': {
           'score': score,
           'comment': comment
         },
-        ticketId
-      ).then(function() {
-        location.href('detail.html?ticket_id=' + ticketId);
-      });
+        'ticket_id': ticketId
+      };
+      utils.postReview(data)
+        .then(function() {
+          window.location.href = 'detail.html?ticket_id=' + ticketId;
+        });
     }
   };
 
@@ -130,25 +119,6 @@
       view.review.computedScore($(this).data('id'), $('#reviewScoreUi'), $('#reviewScore'));
     });
 
-    // utils.getTicket(ticketId)
-    //   .then(function(ticket) {
-    //     return utils.getUser(ticket.user.id);
-    //   })
-
-    // utils.getReviewList(userId)
-    //   .then(function(data) {
-    //     view.addReview('review', data.reviews, function(review) {
-    //       return {
-    //         title: 'タイトル',
-    //         userName: review.from_user.username,
-    //         score: view.computedScore('score', review.score),
-    //         message: review.comment,
-    //         time: review.created_at.split(' ')[0]
-    //       };
-    //     });
-    //   })
-    //   .fail(function(err) {
-    //     console.error(err);
-    //   });
+    controller.init();
   });
 }(window, jQuery));

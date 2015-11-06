@@ -31,8 +31,8 @@ $(function(){
 			});
 		},
 		autoFocus: true,
-		delay: 500,
-		minLength: 2
+		delay: 300,
+		minLength: 1
 	});
 
 	$("#button").click(function(){
@@ -94,7 +94,8 @@ $(function(){
 			success: function(json_data){
 		
 				console.log(JSON.stringify(json_data)); 
-//ホームに遷移	location.href="url";
+				alert("チケットを作成しました。");
+				location.href="./home.html";
 			},
 			error: function(xhr,textStatus,errorThrown){						
 				console.log("error.");
