@@ -24,9 +24,21 @@
 
   var view = {
     bind: function($el, model) {
-      for (var key in model) {
-        if (model.hasOwnProperty(key)) {
-          $('.' + key, $el).html(model[key]);
+      var type, key;
+
+      for (type in model) {
+        if (type === 'html') {
+          for (key in model[type]) {
+            if (model[type].hasOwnProperty(key)) {
+              $('.' + key, $el).html(model[type][key]);
+            }
+          }
+        } else if (type === 'attr') {
+          for (key in model[type]) {
+            if (model[type].hasOwnProperty(key)) {
+              $('.' + key, $el).attr('src', model[type][key]);
+            }
+          }
         }
       }
       return $el;
@@ -65,11 +77,16 @@
       .then(function(data) {
         view.addReview('review', data.reviews, function(review) {
           return {
-            title: 'タイトル',
-            userName: review.from_user.username,
-            score: view.computedScore('score', review.score),
-            message: review.comment,
-            time: review.created_at.split(' ')[0]
+            html: {
+              title: review.ticket.title,
+              userName: review.from_user.username,
+              score: view.computedScore('score', review.score),
+              message: review.comment,
+              time: review.created_at.split(' ')[0]
+            },
+            attr: {
+              userImage: review.from_user.profile_img_url
+            }
           };
         });
       })

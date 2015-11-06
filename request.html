@@ -7,28 +7,30 @@
 		<title>ちえぴったん</title>
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<link rel="stylesheet" href="./css/ticket-detail.css">
-		<link rel="stylesheet" href="./css/common.css"> 
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/header.css">
 	</head>
 	<body>
 		<script src="./js/common.js"></script>
 		<script src="./js/jquery.min.js"></script>
 		<script src="./js/send_message.js"></script>
-		<header role="banner">
-			<nav class="navbar navbar-default">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
-						<a href="" class="icon-notice" aria-hidden="true"></a>
-					</button>
-					<a href="#" class="navbar-brand"></a>
-					<button type="button" class="navbar-toggle no-margin no-border">
-						<a href="" class="icon-search" aria-hidden="true"></a>
-					</button>
-					<button type="button" class="navbar-toggle no-margin no-border">
-						<a href="" class="icon-ticket" aria-hidden="true"></a>
-					</button>
-				</div>
-			</nav>
-		</header>
+		<div class="container" id="header">
+		    <div class="row" id="header-wrapper">
+		        <div class="col-xs-4 col-md-4 col-lg-4" id="icon-notice">
+		            <a href="home.html"><img src="img/icon/notice.png" alt="notice_icon" /></a>
+		        </div>
+		        <div class="col-xs-4 col-md-4 col-lg-4" id="logo-img">
+		            <div class="centering">
+		                <a href="home.html"><img src="img/logo-02.png" alt="logo" /></a>
+		            </div>
+		        </div>
+		        <div class="col-xs-4 col-md-4 col-lg-4" id="icons">
+		            <a href="create.html"><img src="img/icon/ticket.png" alt="ticket_icon" /></a>
+		            <a href="search.html"><img src="img/icon/search.png" alt="search_icon" /></a>
+		        </div>
+		    </div>
+		</div>
+		<div class="container" id="main">
 		<div class="form-group clearfix wr_message">
 			<div class="row">
 				<p class="gray-font col-xs-3 col-sm-3 col-md-3 col-xs-offset-3 col-sm-offset-3 col-md-offset-3">名前</p>
@@ -53,7 +55,7 @@
 		</div>
 		<div id="ticketpage">
 			<div id="ticketTitle" class="container">
-				<div class="clearfix"> 
+				<div class="clearfix">
 					<img src="./img/icon/beginner.png" class="pull-right beginner_icon" alt="beginner">
 				</div>
 				<h3 id="mainticket_title" class="text-center">
@@ -106,9 +108,9 @@
 				<h6 class="text-center"><label for="ticketTag">タグ</label></h6>
 				<div id="taglist">
 					<div class="tag color-blue">一発芸</div>
-					<div class="tag color-blue">一発芸</div> 
+					<div class="tag color-blue">一発芸</div>
 				</div>
 			</div>
-		</div>
+		</div></div>
 	</body>
 </html>
