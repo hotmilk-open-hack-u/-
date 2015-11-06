@@ -94,7 +94,7 @@
         <div id="contents" class="row">
             <div class="row ticket" v-for="ticket in tickets">
                 <a href="detail.html?ticket_id={{ticket.id}}">
-                <div class="ticket_img col-xs-4 col-md-4 col-lg-4">
+                <div class="ticket_img col-xs-4 col-md-4 col-lg-4" style="background-image:url({{ticket.header_img_url}});">
                     <!-- background img -->
                 </div>
                 <div class=" ticket-info col-xs-8 col-md-8 col-lg-8">

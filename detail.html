@@ -53,7 +53,7 @@
 				</div>
 					<!--ここまでユーザー情報-->
 
-				<div id="ticketTitle" class="container">
+				<div id="ticketTitle" class="container" style="background-image:url({{ticketdata.header_img_url}});">
 					<div class="clearfix">
 						<img src="./img/icon/beginner.png" class="pull-right beginner_icon" alt="beginner">
 					</div>
@@ -71,7 +71,7 @@
 					<div class="form-group">
 						<h6 class="text-center"><label for="ticketContent">教えて欲しい内容</label></h6>
 						<p class="blue-font">{{ticketdata.body}}</p>
-						<button v-if="ticketdata.bought_user_id == null" type="button" class="teach_button">
+						<button v-if="ticketdata.bought_user_id == null" onclick="location.href='./request.html?ticket_id='+{{ticketdata.id}};" type="button" class="teach_button">
 							<strong>教える！</strong>
 						</button>
 					</div>
@@ -116,7 +116,7 @@
 					<a href="detail.html?ticket_id={{userticket.id}}" class="no-decoration">
 						<div class="ticket-image">
 							<!-- <div class='new'></div> -->
-							<img src="img/ticket.jpg" alt="ticket image">
+							<img src="{{userticket.header_img_url}}" alt="ticket image">
 						</div>
 						<div class="ticket-detail">
 							<h5 class="no-margin hide-overflow">

@@ -98,6 +98,9 @@
     -webkit-border-radius: 10px 10px 0px 0px;
     background-color: #cccccc;
 	margin-bottom: 0px;
+	background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #mainticket_title {
