@@ -47,7 +47,6 @@ $(function(){
 		delay: 300,
 		minLength: 1
 	});
-
 	$("#button").click(function(){
 		if(!document.getElementById("form").checkValidity()){ //必須formが空でないか
 			if($("div.tag").length != 0) {
@@ -98,6 +97,8 @@ $(function(){
 		var send_data = JSON.stringify(formdata);
 		//console.log(formdata);
 		console.log(send_data);
+		// ローディング画面を表示
+		$("#loadingview").css("display","block");
 
 		$.ajax({
 			type: 'post',

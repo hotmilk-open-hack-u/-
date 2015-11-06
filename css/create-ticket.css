@@ -3,7 +3,7 @@ h4 {
 }
 
 h6.text-center {
-    color: #f44336; 
+    color: #f44336;
 }
 
 #ticketpage {
@@ -180,4 +180,24 @@ div.tag {
 	padding:10px 0px;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
+}
+
+/*loading view*/
+#loadingview{
+    z-index: 100;
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left:0px;
+    top:0px;
+}
+#loadingview img{
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+    top: 100px;
+    position: relative;
 }
