@@ -101,6 +101,12 @@
               }
             }
           }
+        } else if (type === 'addClass') {
+          for (key in model[type]) {
+            if (model[type].hasOwnProperty(key)) {
+              $('.' + key, $el).addClass(model[type][key]);
+            }
+          }
         }
       }
       return $el;
@@ -200,7 +206,7 @@
     },
     search: function(text) {
       var query = {};
-      if (text.trim()) {
+      if (text) {
         query.q = text.trim();
       }
       if (store.gender !== 0) {
@@ -240,7 +246,6 @@
       $('#ticket').html('');
       utils.getTickets(query)
         .then(function(data) {
-          console.log(data);
           view.addTickets('ticket', data.tickets, function(ticket) {
             var place = [];
             if (ticket.skype) {
@@ -259,7 +264,8 @@
                 time: ticket.time + 'h',
                 location: place.join(','),
                 userName: ticket.user.username,
-                createdAt: ticket.created_at.split(' ')[0]
+                createdAt: ticket.created_at.split(' ')[0],
+                like: ticket.stocked_num
               },
               attr: {
                 href: {
@@ -272,6 +278,9 @@
                 style: {
                   beginner: ticket.beginner ? '' : 'display: none'
                 }
+              },
+              addClass: {
+                like: ticket.stocked_num ? 'icon-inline-person' : 'icon-inline-person-i'
               }
             };
           });
@@ -303,5 +312,7 @@
       store[type] = val;
       controller.refleshUi();
     });
+
+    controller.search();
   });
 }(window, jQuery, Vue));
