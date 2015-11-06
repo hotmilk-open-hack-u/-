@@ -20,12 +20,22 @@ $(function(){
 	if($("input#female").prop('checked')) {
 		sex = 1; //女
 	}
-
+	 var formdata = {
+		"user":{
+			token:localStorage.getItem("token"),
+			email:$("#mail_address").val(),
+			username:$("#user-name").val(),
+			last_name:$("#last-name").val(),
+			first_name:$("#first-name").val(),
+			sex:sex,
+			introduction:$("#profile_text").val()
+		}
+	};
 	// データバインド設定
 	var vueObj = new Vue({
 		el:'#main',
 		data:{
-			userinfo:[],
+			userinfo:[]
 		}
 	});
 	// ユーザー情報の取得
@@ -42,18 +52,9 @@ $(function(){
 		}
 	});
 
+	console.log(formdata);
+
 	$("#profile-button").click(function(){ //プロフィールの変更ボタン押されたとき
-		var formdata = {
-			"user":{
-				token:localStorage.getItem("token"),
-				email:$("#mail_address").val(),
-				username:$("#user-name").val(),
-				last_name:$("#last-name").val(),
-				first_name:$("#first-name").val(),
-				sex:sex,
-				introduction:$("#profile_text").val()
-			}
-		};
 		$.ajax({
 			type: 'post',
 			url: 'http://210.140.71.3/users/' + user_id + '.json',
