@@ -269,7 +269,7 @@
               },
               attr: {
                 href: {
-                  link: 'detail.html?ticket_id' + ticket.id
+                  link: 'detail.html?ticket_id=' + ticket.id
                 },
                 src: {
                   ticketImage: ticket.ticket_img_url,
