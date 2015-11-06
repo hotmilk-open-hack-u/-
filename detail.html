@@ -8,133 +8,136 @@
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<link rel="stylesheet" href="./css/ticket-detail.css">
 		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/header.css">
 		<script src="./js/jquery.min.js"></script>
 		<script src="./js/vue.min.js"></script>
 		<script src="./js/common.js"></script>
 		<script src="./js/ticket_detail/receive-ticket.js"></script>
 	</head>
 	<body>
-		<header role="banner">
-			<nav class="navbar navbar-default">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
-						<a href="" class="icon-notice" aria-hidden="true"></a>
-					</button>
-					<a href="#" class="navbar-brand"></a>
-					<button type="button" class="navbar-toggle no-margin no-border">
-						<a href="" class="icon-search" aria-hidden="true"></a>
-					</button>
-					<button type="button" class="navbar-toggle no-margin no-border">
-						<a href="" class="icon-ticket" aria-hidden="true"></a>
-					</button>
+		<div class="container" id="header">
+		    <div class="row" id="header-wrapper">
+		        <div class="col-xs-4 col-md-4 col-lg-4" id="icon-notice">
+		            <a href="home.html"><img src="img/icon/notice.png" alt="notice_icon" /></a>
+		        </div>
+		        <div class="col-xs-4 col-md-4 col-lg-4" id="logo-img">
+		            <div class="centering">
+		                <a href="home.html"><img src="img/logo-02.png" alt="logo" /></a>
+		            </div>
+		        </div>
+		        <div class="col-xs-4 col-md-4 col-lg-4" id="icons">
+		            <a href="create.html"><img src="img/icon/ticket.png" alt="ticket_icon" /></a>
+		            <a href="search.html"><img src="img/icon/search.png" alt="search_icon" /></a>
+		        </div>
+		    </div>
+		</div>
+		<div id="main"class="container">
+			<div id="ticketpage">
+				<div class="row clearfix marginbottom10px">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<a href="user.html?user_id={{userinfo.id}}">
+							<img id="thumbnail" class="pull-right" src="{{userinfo.profile_img_url}}" alt="thumbnail">
+						</a>
+					</div>
+					<div class="userinformation col-xs-6 col-sm-6 col-md-6">
+						<p id="name">{{userinfo.last_name}} {{userinfo.first_name}}</p>
+						<p id="username">{{userinfo.username}}</p>
+						<strong>{{userinfo.review_ave >= 1.0 ? '★':'☆' }}</strong>
+		                <strong>{{userinfo.review_ave >= 2.0 ? '★':'☆' }}</strong>
+		                <strong>{{userinfo.review_ave >= 3.0 ? '★':'☆' }}</strong>
+		                <strong>{{userinfo.review_ave >= 4.0 ? '★':'☆' }}</strong>
+		                <strong>{{userinfo.review_ave >= 5.0 ? '★':'☆' }}</strong>
+		                <strong>{{userinfo.review_ave}}</strong>
+					</div>
 				</div>
-			</nav>
-		</header>
-		<div id="ticketpage">
-			<div class="row clearfix marginbottom10px">
-				<div class="col-xs-6 col-sm-6 col-md-6">
-					<a href="user.html?user_id={{userinfo.id}}">
-						<img id="thumbnail" class="pull-right" src="{{userinfo.profile_img_url}}" alt="thumbnail">
+					<!--ここまでユーザー情報-->
+
+				<div id="ticketTitle" class="container">
+					<div class="clearfix">
+						<img src="./img/icon/beginner.png" class="pull-right beginner_icon" alt="beginner">
+					</div>
+					<h3 id="mainticket_title" class="text-center">
+						<strong>{{ticketdata.title}}</strong>
+					</h3>
+					<div class="clearfix">
+						<img src="./img/icon/like.png" class="pull-right like_icon" alt="like">
+					</div>
+				</div>
+
+					<!-- ここまでチケットのタイトル -->
+
+				<div id="ticketdetail" class="container">
+					<div class="form-group">
+						<h6 class="text-center"><label for="ticketContent">教えて欲しい内容</label></h6>
+						<p class="blue-font">{{ticketdata.body}}</p>
+						<button type="button" class="teach_button">
+							<strong>教える！</strong>
+						</button>
+					</div>
+					<hr>
+					<h6 class="text-center"><label for="ticketInformation">希望事項</label></h6>
+					<div class="blue-font row clearfix marginbottom10px">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<p class="blue-font pull-right">希望料金</p>
+							<img id="price" class="pull-right" src="./img/icon/price.png" alt="money">
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<p id="hope_price_time">{{ticketdata.price}}円</p>
+						</div>
+					</div>
+					<div class="blue-font row clearfix marginbottom10px">
+						<div class="col-xs-6 col-sm-6 col-md-6 blue-font">
+							<p class="pull-right">所要時間</p>
+							<img id="time" class="pull-right" src="./img/icon/time.png" alt="money">
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<p id="hope_time">{{ticketdata.time}}h</p>
+						</div>
+					</div>
+					<div class="blue-font row clearfix marginbottom10px">
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<p class="pull-right">希望場所</p>
+							<img id="location" class="pull-right" src="./img/icon/location.png" alt="money">
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<p ="hope_location">{{ticketdata.skype ? 'Skype':''}} {{ticketdata.offline_place}}</p>
+						</div>
+					</div>
+					<hr>
+						<!-- ここまで希望事項 -->
+
+					<h6 class="text-center"><label for="ticketTag">タグ</label></h6>
+					<div id="taglist">
+						<div class="tag color-blue" v-for="tag in ticketdata.tags">{{tag.name}}</div>
+					</div>
+				</div>
+				<div class="ticket" v-for="userticket in usertickets">
+					<a href="detail.html?ticket_id={{userticket.id}}" class="no-decoration">
+						<div class="ticket-image">
+							<!-- <div class='new'></div> -->
+							<img src="img/ticket.jpg" alt="ticket image">
+						</div>
+						<div class="ticket-detail">
+							<h5 class="no-margin hide-overflow">
+								<strong class="title">{{userticket.title}}</strong>
+							</h5>
+							<ul class="list-inline color-blue-dark">
+								<li class="price icon-inline-price">{{userticket.price}}円</li>
+								<li class="time icon-inline-time">{{userticket.time}}h</li>
+								<li class="location icon-inline-location">{{userticket.skype ? 'Skype':''}} {{ticketdata.offline_place}}</li>
+							</ul>
+							<footer class="clearfix">
+								<p class="user pull-left">
+									<img src="img/user-icon.jpg" alt="user icon" class="img-circle">
+									<strong class="user-name">{{userticket.user.username}}</strong>
+								</p>
+								<span class="like icon-inline-like pull-right color-red">{{userticket.stocked_num}}</span>
+							</footer>
+						</div>
 					</a>
 				</div>
-				<div class="userinformation col-xs-6 col-sm-6 col-md-6">
-					<p id="name">{{userinfo.last_name}} {{userinfo.first_name}}</p>
-					<p id="username">{{userinfo.username}}</p>
-					<strong>{{userinfo.review_ave >= 1.0 ? '★':'☆' }}</strong>
-	                <strong>{{userinfo.review_ave >= 2.0 ? '★':'☆' }}</strong>
-	                <strong>{{userinfo.review_ave >= 3.0 ? '★':'☆' }}</strong>
-	                <strong>{{userinfo.review_ave >= 4.0 ? '★':'☆' }}</strong>
-	                <strong>{{userinfo.review_ave >= 5.0 ? '★':'☆' }}</strong>
-	                <strong>{{userinfo.review_ave}}</strong>
-				</div>
+				<a href="" class="pull-right">もっとみる</a>
 			</div>
-				<!--ここまでユーザー情報-->
-
-			<div id="ticketTitle" class="container">
-				<div class="clearfix">
-					<img src="./img/icon/beginner.png" class="pull-right beginner_icon" alt="beginner">
-				</div>
-				<h3 id="mainticket_title" class="text-center">
-					<strong>{{ticketdata.title}}</strong>
-				</h3>
-				<div class="clearfix">
-					<img src="./img/icon/like.png" class="pull-right like_icon" alt="like">
-				</div>
-			</div>
-
-				<!-- ここまでチケットのタイトル -->
-
-			<div id="ticketdetail" class="container">
-				<div class="form-group">
-					<h6 class="text-center"><label for="ticketContent">教えて欲しい内容</label></h6>
-					<p class="blue-font">{{ticketdata.body}}</p>
-					<button type="button" class="teach_button">
-						<strong>教える！</strong>
-					</button>
-				</div>
-				<hr>
-				<h6 class="text-center"><label for="ticketInformation">希望事項</label></h6>
-				<div class="blue-font row clearfix marginbottom10px">
-					<div class="col-xs-6 col-sm-6 col-md-6">
-						<p class="blue-font pull-right">希望料金</p>
-						<img id="price" class="pull-right" src="./img/icon/price.png" alt="money">
-					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6">
-						<p id="hope_price_time">{{ticketdata.price}}円</p>
-					</div>
-				</div>
-				<div class="blue-font row clearfix marginbottom10px">
-					<div class="col-xs-6 col-sm-6 col-md-6 blue-font">
-						<p class="pull-right">所要時間</p>
-						<img id="time" class="pull-right" src="./img/icon/time.png" alt="money">
-					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6">
-						<p id="hope_time">{{ticketdata.time}}h</p>
-					</div>
-				</div>
-				<div class="blue-font row clearfix marginbottom10px">
-					<div class="col-xs-6 col-sm-6 col-md-6">
-						<p class="pull-right">希望場所</p>
-						<img id="location" class="pull-right" src="./img/icon/location.png" alt="money">
-					</div>
-					<div class="col-xs-6 col-sm-6 col-md-6">
-						<p ="hope_location">{{ticketdata.skype ? 'Skype':''}} {{ticketdata.offline_place}}</p>
-					</div>
-				</div>
-				<hr>
-					<!-- ここまで希望事項 -->
-
-				<h6 class="text-center"><label for="ticketTag">タグ</label></h6>
-				<div id="taglist">
-					<div class="tag color-blue" v-for="tag in ticketdata.tags">{{tag.name}}</div>
-				</div>
-			</div>
-			<div class="ticket" v-for="userticket in usertickets">
-				<a href="detail.html?ticket_id={{userticket.id}}" class="no-decoration">
-					<div class="ticket-image">
-						<!-- <div class='new'></div> -->
-						<img src="img/ticket.jpg" alt="ticket image">
-					</div>
-					<div class="ticket-detail">
-						<h5 class="no-margin hide-overflow">
-							<strong class="title">{{userticket.title}}</strong>
-						</h5>
-						<ul class="list-inline color-blue-dark">
-							<li class="price icon-inline-price">{{userticket.price}}円</li>
-							<li class="time icon-inline-time">{{userticket.time}}h</li>
-							<li class="location icon-inline-location">{{userticket.skype ? 'Skype':''}} {{ticketdata.offline_place}}</li>
-						</ul>
-						<footer class="clearfix">
-							<p class="user pull-left">
-								<img src="img/user-icon.jpg" alt="user icon" class="img-circle">
-								<strong class="user-name">{{userticket.user.username}}</strong>
-							</p>
-							<span class="like icon-inline-like pull-right color-red">{{userticket.stocked_num}}</span>
-						</footer>
-					</div>
-				</a>
-			</div>
-			<a href="" class="pull-right">もっとみる</a>
 		</div>
 	</body>
 </html>
