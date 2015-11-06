@@ -1,0 +1,164 @@
+/**
+ * ホーム画面にあるticketの要素のテンプレートです。
+ * bootstrapとvue.jsが必要です。
+ * 要素に入るものは察してください
+ *
+ * @author うえちゃん
+ */
+
+/*以下がテンプレート */
+/*
+<div class="row ticket" v-for="ticket in tickets">
+    <a href="detail.html?ticket_id={{ticket.id}}">
+    <div class="ticket_img col-xs-4 col-md-4 col-lg-4">
+        <!-- background img -->
+    </div>
+    <div class=" ticket-info col-xs-8 col-md-8 col-lg-8">
+        <div class="title row">
+            <strong>{{ticket.title}}</strong>
+        </div>
+        <div class="row">
+            <div class="t-info col-xs-6 col-md-6 col-lg-6">
+                <img src="img/icon/price.png" alt="price"/><span>  {{ticket.price}}円</span>
+            </div>
+            <div class="t-info col-xs-6 col-md-6 col-lg-6">
+                <img src="img/icon/time.png" alt="price"/><span>  {{ticket.time}}h</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="t-info col-xs-12 col-md-12 col-lg-12">
+                <img src="img/icon/location.png" alt="location"/><span>  {{ticket.skype ? 'Skype':''}} {{ticket.offline_place}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="accountimage col-xs-5 col-md-5 col-lg-5">
+                <img src="img/user-icon.jpg" alt="" /><strong>{{ticket.user.username}}</strong>
+            </div>
+            <div class="date col-xs-4 col-md-4 col-lg-4">
+                <strong>{{ticket.updated_at.substr(0,10)}}</strong>
+            </div>
+            <div class="apply col-xs-3 col-md-3 col-lg-3">
+                <img src="img/icon/person.png" alt="person" /><strong>{{ticket.stocked_num}}</strong>
+            </div>
+        </div>
+    </div>
+    </a>
+</div>
+ */
+ /*initialize*/
+ body{
+     background-color: rgb(250,225,52);
+ }
+ .container{
+     width:100%;
+     margin:0px;
+     padding:0px;
+ }
+ .row{
+     margin:0px;
+     padding:0px;
+ }
+ .centering{
+     margin: 0 auto;
+     float:none;
+     text-align: center;
+ }
+ button{outline : none;}
+ a{color:black; text-decoration:none;outline : none;}
+ a:link { color:black; text-decoration:none }
+ a:visited { color:black; text-decoration:none }
+ a:hover { color:black; text-decoration:none }
+ a:active { color:black; text-decoration:none }
+ /*tickets*/
+
+ /*contents*/
+ #contents-wrapper{
+     background-color:rgb(250,225,52);
+ }
+ #contents-title{
+     padding:15px;
+ }
+ #contents-title span{
+     font-size: 50px;
+     color: white;
+ }
+ #contents-title img{
+     width:200px;
+     height:auto;
+     margin-top:-40px;
+ }
+ .ticket{
+     height: 300px;
+     overflow: hidden;
+     border-radius: 20px;
+     background-color: white;
+     box-shadow: 0px 8px 0px 0px rgba(214,191,77,1);
+     margin-bottom: 20px;
+ }
+ .ticket span, .ticket strong{
+     vertical-align: middle;
+ }
+ .ticket > div{
+     padding:0;
+ }
+ .ticket div{
+     display: block;
+ }.ticket_img{
+     height: 300px;
+     background-image: url(../img/ticket.jpg);
+     background-position: center center;
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+ .ticket .title{
+     white-space:nowrap;
+     overflow:hidden;
+     text-overflow:ellipsis;
+ }
+ .ticket-info{
+     padding-left: 10px;
+     height:100%;
+ }.ticket-info .row{
+     padding-top:10px;
+     height:24.99%;
+ }.ticket-info strong{
+     display: inline;
+     padding-top: 2%;
+     padding-left: 5%;
+     font-size:250%;
+ }
+
+ .t-info img{
+     width:50px;
+     height: 50px;
+ }.t-info span{
+     display: inline;
+     font-size: 250%;
+     color: rgb(125,179,209);
+ }
+
+ .accountimage{
+     float: left;
+ }.accountimage img{
+     display: inline;
+     width:50px;
+     height:50px;
+     border-radius: 50%;
+ }.accountimage strong{
+     display: inline;
+     font-size:180%;
+ }
+
+ .date strong{
+     display: inline;
+     font-size:180%;
+ }
+
+ .apply img{
+     display: inline;
+     width:50%;
+     height:auto;
+ }.apply strong{
+     display: inline;
+     font-size: 180%;
+ }

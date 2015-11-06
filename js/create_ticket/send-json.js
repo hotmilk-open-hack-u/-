@@ -1,8 +1,21 @@
 $(function(){
-	
 	var reqtag = new Array(); //jsonで送信するtagの配列用
 	tagsname = new Array();
-	
+
+	// userの情報を取得
+    user_id = localStorage.getItem("user_id");
+    // user_id = 1;//test用
+    user_token = localStorage.getItem("token");
+    // user_token = "y8ZS4Vx8WXRHv2fe52KEMdYEybJwdFVK";//test用
+    //console.log("user_id:\t"+user_id+"\nuser_token:\t"+user_token);
+
+    // ログイン状態の確認
+    if(user_id == null || user_token == null || user_id == undefined || user_token == undefined){
+        console.log("not login");
+        // ログインしていなかったらトップ画面へ移動
+        window.location.href = 'toppage.html';
+    }
+
     $('#ticket_tag').autocomplete({
         source: function(req,res){
 			$.ajax({
@@ -20,9 +33,9 @@ $(function(){
 							j++;
 						}
 					}
-					
+
 					res(restags);
-					
+
 					//id抽出用
 					for(i=0; i < data.tags.length; i++){
 						tagsname[data.tags[i].id] = data.tags[i].name;
@@ -43,16 +56,16 @@ $(function(){
 				return;
 			}
 		}
-		
+
 		if (!$(":checkbox[name='skype']").prop('checked') && !$(":checkbox[name='hangouts']").prop('checked') && !$(":input[name='offline_location']").val()) {
 			alert("希望場所を指定してください。");
 			return;
 		}
-		 
+
 		var arr = $("div.tag").map(function(){
 			return $(this).text();
 		}).get(); //生成したタグのtextだけとる
-		
+
 		console.log(tagsname.length); //全てのタグが入った配列の長さ確認
 		for(j=0; j < arr.length; j++) {
 			for(i=0; i < tagsname.length; i++) {
@@ -92,12 +105,12 @@ $(function(){
 			contentType: 'application/x-www-form-urlencoded;application/json;application/json',
 			data: formdata,
 			success: function(json_data){
-		
-				console.log(JSON.stringify(json_data)); 
+
+				console.log(JSON.stringify(json_data));
 				alert("チケットを作成しました。");
 				location.href="./home.html";
 			},
-			error: function(xhr,textStatus,errorThrown){						
+			error: function(xhr,textStatus,errorThrown){
 				console.log("error.");
 				console.log(xhr,textStatus,errorThrown);
 			},
