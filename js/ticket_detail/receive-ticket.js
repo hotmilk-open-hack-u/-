@@ -1,12 +1,24 @@
 $(function(){
-
 	var ticketdata;
 	var ticketID = window.common.getQueryString('ticket_id'); //URLのgetパラメータ取得
 	var offset;
 
-    $(".teach_button").click(function(){
-    	location.href='./request.html?ticket_id=' + ticketID;	
-    });  
+	// userの情報を取得
+    user_id = localStorage.getItem("user_id");
+    // user_id = 1;//test用
+    user_token = localStorage.getItem("token");
+    // user_token = "y8ZS4Vx8WXRHv2fe52KEMdYEybJwdFVK";//test用
+    //console.log("user_id:\t"+user_id+"\nuser_token:\t"+user_token);
+    // ログイン状態の確認
+    if(user_id == null || user_token == null || user_id == undefined || user_token == undefined){
+        console.log("not login");
+        // ログインしていなかったらトップ画面へ移動
+        window.location.href = 'toppage.html';
+    }
+
+	$(".teach_button").click(function(){
+    	location.href='./request.html?ticket_id=' + ticketID;
+    });
 
 	console.log("ticketID : "+ticketID);
 	// データバインディングの設定

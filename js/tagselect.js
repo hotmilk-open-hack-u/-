@@ -11,10 +11,10 @@ var category_data;
 
 $(document).ready(function(){
     // userの情報を取得
-    // var user_id = localStorage.getItem("user_id");
-    var user_id = 1;//test用
-    //var user_token = localStorage.getItem("token");
-    var user_token = "y8ZS4Vx8WXRHv2fe52KEMdYEybJwdFVK";//test用
+    var user_id = localStorage.getItem("user_id");
+    // var user_id = 1;//test用
+    var user_token = localStorage.getItem("token");
+    // var user_token = "y8ZS4Vx8WXRHv2fe52KEMdYEybJwdFVK";//test用
 
     console.log("user_id:\t"+user_id+"\nuser_token:\t"+user_token);
 
@@ -22,7 +22,7 @@ $(document).ready(function(){
     if(user_id == null || user_token == null || user_id == undefined || user_token == undefined){
         console.log("not login");
         // ログインしていなかったらトップ画面へ移動
-        //window.location.href = 'toppage.html';
+        window.location.href = 'toppage.html';
     }
 
     // カテゴリデータ

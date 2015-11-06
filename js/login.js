@@ -43,7 +43,7 @@ $(document).ready(function(){
                         localStorage.setItem("user_id",data.id);
                         localStorage.setItem("token",data.authentication_token);
                         // ホームページに移動
-                        // window.location.href = 'home.html';
+                        window.location.href = 'home.html';
                     }else{
                         console.log("not login");
                     }
