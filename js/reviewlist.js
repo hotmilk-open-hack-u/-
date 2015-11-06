@@ -33,7 +33,7 @@
               $('.' + key, $el).html(model[type][key]);
             }
           }
-        } else if(type === 'attr') {
+        } else if (type === 'attr') {
           for (key in model[type]) {
             if (model[type].hasOwnProperty(key)) {
               $('.' + key, $el).attr('src', model[type][key]);
