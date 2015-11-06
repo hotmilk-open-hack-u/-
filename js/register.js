@@ -31,16 +31,12 @@ $(document).ready(function(){
             var password = $("#pass").val();
             console.log("mail:\t"+mail+"\npass:\t"+password);
 
-            // test用
-
             $.ajax({
                 type: 'post',
                 url: 'http://210.140.71.3/users.json',
                 data: {"user":{"email":mail,"password":password,"password_confirmation":password}},
                 dataType: "json",
                 success: function(data){
-                    console.log(data);
-
                     if(data.id != null || data.authentication_token != null){
                         console.log("login");
                         // データ保存
@@ -60,9 +56,9 @@ $(document).ready(function(){
         }else{// invalid
             var id = localStorage.getItem("user_id");
             var token = localStorage.getItem("token");
-            console.log("user_id:\t"+id+"\ntoken:\t"+token);
+            // console.log("user_id:\t"+id+"\ntoken:\t"+token);
             //localStorage.clear();// debug用
-            console.log("invalid! strage cleared");
+            console.log("invalid paramater");
         }
         return false;
     });
