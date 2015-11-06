@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ちえぴったん | トップ</title>
+    <meta name="name" content="content">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/toppage.css">
+    <link rel="stylesheet" href="css/ticket.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/toppage.js"></script>
+</head>
+<body>
+    <div class="container" id="main">
+        <div class="row" id="content1-wrapper">
+            <div class="row">
+                <div class="col-xs-9 col-md-9 col-10-9 centering" id="logo-div">
+                    <img src="img/logo-03.png" alt="logo" id="logo-img"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-9 col-md-9 col-lg-9 centering" id="message">
+                    <span>あなたの<img src="img/teach-plz-i.png" alt="oshiete" id="oshiete"/>を、<br>応援します。</span>
+                </div>
+            </div>
+            <div class="row">
+                <a href="login.html">
+                    <div class="col-xs-9 col-md-9 col-lg-9 centering" id="login-word">
+                        <span>新規登録／ログイン</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row" id="content2-wrapper">
+            <div class="col-xs-12 col-md-12 col-lg-12 centering" id="message1">
+                <span>ちえぴったんで、<br>新たな自分を見つけよう！</span>
+            </div>
+            <div class="row" id="content2-3">
+                <div class="row" id="content2-2">
+                    <div class="col-xs-12 col-md-12 col-lg-12">
+                        <div class="row points" id="point1">
+                            <div class="col-xs-4 col-md-4 col-lg-4">
+                                <img src="img/use-image1.jpg" alt="useimage" class="centering useimage" id="image-use1" />
+                            </div>
+                            <div class="col-xs-8 col-md-8 col-lg-8 vertical-center">
+                                <span>簡単３ステップで、あっという間に、<br><img src="img/teach-plz-r.png" alt="oshiete" id="oshiete3"/>リクエストが出来ます！</span>
+                            </div>
+                        </div>
+                        <div class="row points" id="point2">
+                            <div class="col-xs-4 col-md-4 col-lg-4">
+                                <img src="img/use-image1.jpg" alt="useimage" class="centering useimage" id="image-use1" />
+                            </div>
+                            <div class="col-xs-8 col-md-8 col-lg-8 vertical-center">
+                                <span>新たな知識を得て、<br>ワンランク上の自分にレベルアップ！</span>
+                            </div>
+                        </div>
+                        <div class="row points" id="point3">
+                            <div class="col-xs-4 col-md-4 col-lg-4">
+                                <img src="img/use-image1.jpg" alt="useimage" class="centering useimage" id="image-use1" />
+                            </div>
+                            <div class="col-xs-8 col-md-8 col-lg-8 vertical-center">
+                                <span>自分の持っている知識を<br>たくさんの人と　共有し合おう！</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="content3-wrapper">
+            <div class="row" id="content3-title">
+                <span>HOW TO ちえぴったん</span>
+            </div>
+            <div class="row" id="content3-main">
+                <div class="row">
+                    <div class="col-xs-10 col-md-10 col-lg-10 centering">
+                        <img src="img/howto.png" alt="image77" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10 col-md-10 col-lg-10 centering" id="howtouse">
+                        <span>教えて欲しいことを登録すると…<br>ちえぴったんがあなたにあったユーザーをマッチング！<br>教えてもらう方法はネット上でも、実際にあってもよし<br>それぞれの得意分野を教え合いましょう！</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="content4-wrapper">
+            <div class="row" id="content4-title">
+                <div class="col-xs-5 col-md-5 col-lg-5">
+                    <span>注目の<img src="img/teach-plz.png" alt="oshiete2" id="oshiete2"/></span>
+                </div>
+            </div>
+            <div class="row" id="content4-main">
+                <div class="row ticket" v-for="ticket in items">
+                    <a href="detail.html?ticket_id={{ticket.id}}">
+                    <div class="ticket_img col-xs-4 col-md-4 col-lg-4">
+                        <!-- background img -->
+                    </div>
+                    <div class=" ticket-info col-xs-8 col-md-8 col-lg-8">
+                        <div class="title row">
+                            <strong>{{ticket.title}}</strong>
+                        </div>
+                        <div class="row">
+                            <div class="t-info col-xs-6 col-md-6 col-lg-6">
+                                <img src="img/icon/price.png" alt="price"/><span>  {{ticket.price}}円</span>
+                            </div>
+                            <div class="t-info col-xs-6 col-md-6 col-lg-6">
+                                <img src="img/icon/time.png" alt="price"/><span>  {{ticket.time}}h</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="t-info col-xs-12 col-md-12 col-lg-12">
+                                <img src="img/icon/location.png" alt="location"/><span>  {{ticket.skype ? 'Skype':''}} {{ticket.offline_place}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="accountimage col-xs-5 col-md-5 col-lg-5">
+                                <img src="img/user-icon.jpg" alt="" /><strong>{{ticket.user.username}}</strong>
+                            </div>
+                            <div class="date col-xs-4 col-md-4 col-lg-4">
+                                <strong>{{ticket.updated_at.substr(0,10)}}</strong>
+                            </div>
+                            <div class="apply col-xs-3 col-md-3 col-lg-3">
+                                <img src="img/icon/person.png" alt="person" /><strong>{{ticket.stocked_num}}</strong>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            <div class="row" id="more-button">
+                <div class="col-xs-8 col-md-8 col-lg-8 centering">
+                    <button type="button" name="button">もっとみる</button>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="content5-wrapper">
+            <a href="login.html">
+                <div class="col-xs-9 col-md-9 col-lg-9 centering" id="login-word2">
+                    <span>新規登録／ログイン</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="container" id="footer">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12 centering" id="footer-wrapper">
+                <span><a href="#">運営会社</a>　<a href="#">採用情報</a>　<a href="#">利用規約</a></span><br>
+                <span><a href="#">プライバシーポリシー</a>　<a href="#">よくある質問</a></span><br>
+                <span><a href="#">PC表示モード</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
