@@ -4,15 +4,16 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>ちえぴったん</title>
+		<title>ちえぴったん | チケット詳細</title>
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<link rel="stylesheet" href="./css/ticket-detail.css">
-		<link rel="stylesheet" href="./css/common.css"> 
-	</head>
-	<body>
+		<link rel="stylesheet" href="./css/common.css">
 		<script src="./js/common.js"></script>
 		<script src="./js/jquery.min.js"></script>
-		<script src="./js/ticket_detail/message.js"></script>
+		<script src="./js/vue.min.js"></script>
+		<script src="./js/detail2.js"></script>
+	</head>
+	<body>
 		<header role="banner">
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
@@ -30,33 +31,35 @@
 			</nav>
 		</header>
 		<h3>教えてくれるユーザー</h3>
-		<div class="form-group clearfix wr_message">
-			<div class="row">
-				<p class="gray-font col-xs-3 col-sm-3 col-md-3 col-xs-offset-3 col-sm-offset-3 col-md-offset-3">名前</p>
-			</div>
-			<div class="row">
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<img class="little_thumbnail center-block" src="./img/icon/thumbnail.png" alt="thumbnail">
-					<p class="little_evaluation text-center">★ ☆ ☆ ☆ ☆ </p>
+		<div id="applylist">
+			<div class="form-group clearfix wr_message" v-for="apply in applylist">
+				<div class="row">
+					<p class="gray-font col-xs-3 col-sm-3 col-md-3 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 ap_name">{{apply.user.last_name}} {{apply.user.first_name}}</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-6">
-					<p>そちらの内容でしたら、１時間で教えることができます。</p>
-					<small class="gray-font">2014.11.20</small>
-				</div>
-				<div class="col-xs-3 col-sm-3 col-md-3">
-					<button type="button" name="message_button" id="message_button">
-						<label id="message_icon" for="message"></label>
-					</button>
+				<div class="row">
+					<div class="col-xs-3 col-sm-3 col-md-3">
+						<img class="little_thumbnail center-block" src="./img/icon/thumbnail.png" alt="thumbnail">
+						<p class="little_evaluation text-center">★ ☆ ☆ ☆ ☆ </p>
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<p>{{apply.comment}}</p>
+						<small class="gray-font">{{apply.created_at.substr(0,10)}}</small>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3">
+						<button type="button" name="message_button" id="message_button">
+							<label id="message_icon" for="message"></label>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div id="ticketpage">
 			<div id="ticketTitle" class="container">
-				<div class="clearfix"> 
+				<div class="clearfix">
 					<button type="button" class="pull-right" id="edit">編集
 				</div>
 				<h3 id="mainticket_title" class="text-center">
-					<strong>タイトル</strong>
+					<strong>{{ticketinfo.title}}</strong>
 				</h3>
 				<div class="clearfix">
 					<img src="./img/icon/like.png" class="pull-right like_icon" alt="like">
@@ -68,7 +71,7 @@
 			<div id="ticketdetail" class="container">
 				<div class="form-group">
 					<h6 class="text-center"><label for="ticketContent">教えて欲しい内容</label></h6>
-					<p class="blue-font">チケット内容</p>
+					<p class="blue-font">{{ticketinfo.body}}</p>
 				</div>
 				<hr>
 				<h6 class="text-center"><label for="ticketInformation">希望事項</label></h6>
@@ -78,7 +81,7 @@
 						<img id="price" class="pull-right" src="./img/icon/price.png" alt="money">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<p id="hope_price_time">price/time</p>
+						<p id="hope_price_time">{{ticketinfo.time}}h</p>
 					</div>
 				</div>
 				<div class="blue-font row clearfix marginbottom10px">
@@ -87,7 +90,7 @@
 						<img id="time" class="pull-right" src="./img/icon/time.png" alt="money">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<p id="hope_time">time/h</p>
+						<p id="hope_time">{{ticketinfo.time}}h</p>
 					</div>
 				</div>
 				<div class="blue-font row clearfix marginbottom10px">
@@ -96,16 +99,15 @@
 						<img id="location" class="pull-right" src="./img/icon/location.png" alt="money">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<p ="hope_location">location</p>
+						<p ="hope_location">{{ticketinfo.skype ? 'Skype':''}} {{ticketinfo.offline_place}}</p>
 					</div>
 				</div>
 				<hr>
 					<!-- ここまで希望事項 -->
 
 				<h6 class="text-center"><label for="ticketTag">タグ</label></h6>
-				<div id="taglist">
-					<div class="tag color-blue">一発芸</div>
-					<div class="tag color-blue">一発芸</div> 
+				<div id="taglist" >
+					<div class="tag color-blue" v-for="tag in ticketinfo.tags">{{tag.name}}</div>
 				</div>
 			</div>
 		</div>
