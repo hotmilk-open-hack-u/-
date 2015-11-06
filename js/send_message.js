@@ -10,7 +10,7 @@ $(function(){
 			data: {"user":{ "token":localStorage.getItem("token")},"comment":$("#send_content").text()},
 			success: function(data){
 				alert(data);
-				location.href="./home";
+				location.href="./home.html";
 			},  
 			error: function(xhr,textStatus,errorThrown){    
 				console.log("error.");
