@@ -1,0 +1,126 @@
+h4 {
+    color: #f44336;
+}
+
+h6.text-center {
+    color: #f44336; 
+}
+
+.no-padding-left {
+    padding-left: 0px;
+}
+
+.no-padding-right {
+    padding-right: 0px;
+}
+
+.blue-font {
+    color: #74bae3;
+}
+
+.bg_white {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    background-color: #fff;
+}
+
+input#select_file[type="file"] {
+    opacity: 0;
+}
+
+#file_icon {
+    width: 20px;
+    height: 20px;
+    background: url(../img/icon/plus-i.png) no-repeat;
+    background-size: contain;
+}
+
+#file_icon:hover {
+    background: url(../img/icon/plus.png) no-repeat;
+    background-size: contain;
+}
+
+#thumbnail_icon {
+	width: 70px;
+	height: 70px;
+}
+
+#last-name {
+	margin-bottom: 5px;
+}
+
+.online-font {
+	font-weight: lighter;
+	font-size: 12px;
+	margin-left: 3px;
+	margin-right: -20px;
+	padding-top: 30px;
+}
+
+#male,#female {
+	opacity: 0;
+}
+
+#male_box, #female_box{
+    color: #74bae3;
+    height: 37px;
+    width: 100%;
+	text-align:center;
+	padding:6px 0px 0px;
+    background-color: #fff;
+    border-color: #74bae3;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border: solid 2px;
+}
+
+input#male[type="radio"]:checked + #male_box,input#female[type="radio"]:checked + #female_box {
+    color: #fff;
+    background-color: #74bae3;
+    border-color: #74bae3;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+#male_icon,#female_icon {
+    width: 30px;
+    height: 30px;
+}
+
+div.tag {
+	margin: 0px 10px 10px 0px;
+}
+
+input[type="text"],#profile_text {
+    border:solid 2px #74bae3;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+#profile-button {
+	color: #fff;
+	width: 100%;
+    border: 0px;
+    background-color: #f44336;
+	border-color: #f33a2c;
+    box-shadow: 0px 3px 0px 0px rgba(183,72,57,1);
+	margin-bottom: 30px;
+	padding:10px 0px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
+#tag-button {
+    color: #fff;
+    width: 100%;
+    border: 0px;
+    background-color: #b4e3ed;
+    border-color: #b4e3eb;
+    box-shadow: 0px 3px 0px 0px rgba(86,171,190,1);
+	margin-bottom: 30px;
+    padding:10px 0px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+}
+
