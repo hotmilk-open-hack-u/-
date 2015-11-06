@@ -2,21 +2,13 @@
   'use strict';
 
   var ticketId = parseInt(window.common.getQueryString('ticket_id'), 10);
-  var token = window.common.me.token;
+  // var token = window.common.me.token;
+  var token = 'LyiiWG9cqWeNpVvPN6p7mSkxaYgiG1yg';
   var maxScore = 5;
 
-  // userの情報を取得
-  user_id = localStorage.getItem("user_id");
-  // user_id = 1;//test用
-  user_token = localStorage.getItem("token");
-  // user_token = "y8ZS4Vx8WXRHv2fe52KEMdYEybJwdFVK";//test用
-  //console.log("user_id:\t"+user_id+"\nuser_token:\t"+user_token);
-
   // ログイン状態の確認
-  if(user_id == null || user_token == null || user_id == undefined || user_token == undefined){
-      console.log("not login");
-      // ログインしていなかったらトップ画面へ移動
-      window.location.href = 'toppage.html';
+  if (!token) {
+    window.location.href = 'toppage.html';
   }
 
   var utils = {
@@ -83,18 +75,16 @@
         }
         $dst.val(score);
       }
-    },
-    user: {
-      computedScore: function(el, score) {},
-      add: function(el, data, model) {}
     }
   };
 
   var controller = {
     init: function() {
       utils.getTicket(ticketId)
-        .then(function(ticket) {
+        .then(function(ticket) {console.log(ticket);
           view.review.add('ticketTitle', ticket.title);
+
+          $('#ticketImage').css('background', 'url(' + ticket.header_img_url + ') center center');
           return utils.getUser(ticket.bought_user_id);
         })
         .then(function(user) {

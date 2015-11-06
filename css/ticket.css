@@ -10,7 +10,7 @@
 /*
 <div class="row ticket" v-for="ticket in tickets">
     <a href="detail.html?ticket_id={{ticket.id}}">
-    <div class="ticket_img col-xs-4 col-md-4 col-lg-4">
+    <div class="ticket_img col-xs-4 col-md-4 col-lg-4" style="background-image:url({{ticket.header_img_url}});">
         <!-- background img -->
     </div>
     <div class=" ticket-info col-xs-8 col-md-8 col-lg-8">
@@ -32,7 +32,7 @@
         </div>
         <div class="row">
             <div class="accountimage col-xs-5 col-md-5 col-lg-5">
-                <img src="img/user-icon.jpg" alt="" /><strong>{{ticket.user.username}}</strong>
+                <img src="{{ticket.user.profile_img_url}}" alt="" /><strong>{{ticket.user.username}}</strong>
             </div>
             <div class="date col-xs-4 col-md-4 col-lg-4">
                 <strong>{{ticket.updated_at.substr(0,10)}}</strong>
