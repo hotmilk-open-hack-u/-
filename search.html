@@ -135,7 +135,7 @@
         <input type="text" id="searchField" class="input-field color-blue-dark" placeholder="おしえてを探す">
         <!-- 検索ボタン -->
         <button id="searchbtn" type="button" class="btn color-blue-dark no-margin no-vertical no-border z-depth-0"><i class="glyphicon glyphicon-search"></i></button>
-        <div id="filterMenu" class="dropdown pull-right">
+        <div id="filterMenu" class="dropdown pull-right open">
           <button type="button" id="filterMenuBtn" class="btn color-yellow z-depth-0 filter icon-inline-filter-i dropdown-toggle">絞り込み</button>
           <ul class="dropdown-menu dropdown-menu-right">
             <li class="dropdown-header">検索条件</li>
@@ -146,8 +146,8 @@
                 </dt>
                 <dd>
                   <div id="selector-sex">
-                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-male-y z-depth-0 no-margin inline-btn">男</button>
-                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-female-y z-depth-0 no-margin inline-btn">女</button>
+                    <button class="searchFilter btn color-yellow {{male ? 'icon-inline-male-i':'icon-inline-male-y bg-color-white text-color-yellow'}} z-depth-0 no-margin inline-btn" data-type="gender" data-val="1">男</button>
+                    <button class="searchFilter btn color-yellow {{female ? 'icon-inline-female-i':'icon-inline-female-y bg-color-white text-color-yellow'}} z-depth-0 no-margin inline-btn" data-type="gender" data-val="2">女</button>
                   </div>
                 </dd>
               </dl>
@@ -160,10 +160,10 @@
                 </dt>
                 <dd>
                   <div id="selector-location">
-                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-online-y z-depth-0 no-margin inline-btn">
+                    <button class="searchFilter btn color-yellow {{online ? 'icon-inline-online-i':'icon-inline-online-y bg-color-white text-color-yellow'}} z-depth-0 no-margin inline-btn" data-type="location" data-val="1">
                       <span class="h6">オン</span>
                     </button>
-                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-offline-y z-depth-0 no-margin inline-btn">
+                    <button class="searchFilter btn color-yellow {{offline ? 'icon-inline-offline-i':'icon-inline-offline-y bg-color-white text-color-yellow'}} z-depth-0 no-margin inline-btn" data-type="location" data-val="2">
                       <span class="h6">オフ</span>
                     </button>
                   </div>
@@ -178,10 +178,10 @@
                 </dt>
                 <dd>
                   <div id="selector-skill">
-                    <button class="btn color-yellow bg-color-white text-color-yellow {{beginner ? 'icon-inline-beginner-i':'icon-inline-beginner-y'}} z-depth-0 no-margin inline-btn">
+                    <button class="searchFilter btn color-yellow {{beginner ? 'icon-inline-beginner-i':'icon-inline-beginner-y bg-color-white text-color-yellow'}} z-depth-0 no-margin inline-btn" data-type="skill" data-val="1">
                       <span class="h6">初心者</span>
                     </button>
-                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-beginner-not-y z-depth-0 no-margin inline-btn">
+                    <button class="searchFilter btn color-yellow {{veteran ? 'icon-inline-beginner-not-i':'icon-inline-beginner-not-y bg-color-white text-color-yellow'}} z-depth-0 no-margin inline-btn" data-type="skill" data-val="2">
                       <span class="h6">経験者</span>
                     </button>
                   </div>
@@ -190,15 +190,15 @@
             </li>
             <div id="selector-sort">
               <li class="dropdown-header">並び替え</li>
-              <li><a class="icon-inline-like-y text-color-yellow">人気順</a></li>
+              <li><a class="searchFilter {{sort == 'popular' ? 'icon-inline-like text-color-red' : 'icon-inline-like-y text-color-yellow'}}" data-type="sort" data-val="1">人気順</a></li>
               <li role="separator" class="divider"></li>
-              <li><a class="icon-inline-star-y text-color-yellow">最新順</a></li>
+              <li><a class="searchFilter {{sort == 'new' ? 'icon-inline-star-r text-color-red' : 'icon-inline-star-y text-color-yellow'}}" data-type="sort" data-val="2">最新順</a></li>
               <li role="separator" class="divider"></li>
-              <li><a class="icon-inline-time-y text-color-yellow">所要時間が長い順</a></li>
+              <li><a class="searchFilter {{sort == 'time' ? 'icon-inline-time-r text-color-red' : 'icon-inline-time-y text-color-yellow'}}" data-type="sort" data-val="3">所要時間が長い順</a></li>
               <li role="separator" class="divider"></li>
-              <li><a class="icon-inline-price-asc-y text-color-yellow">価格が低い順</a></li>
+              <li><a class="searchFilter {{sort == 'price_asc' ? 'icon-inline-price-asc-r text-color-red' : 'icon-inline-price-asc-y text-color-yellow'}}" data-type="sort" data-val="4">価格が低い順</a></li>
               <li role="separator" class="divider"></li>
-              <li><a class="icon-inline-price-desc-y text-color-yellow">価格が高い順</a></li>
+              <li><a class="searchFilter {{sort == 'price_dsc' ? 'icon-inline-price-desc-r text-color-red' : 'icon-inline-price-desc-y text-color-yellow'}}" data-type="sort" data-val="5">価格が高い順</a></li>
             </div>
           </ul>
         </div>
@@ -218,19 +218,19 @@
         <div class="ticket-detail">
           <div class="beginner"></div>
           <h5 class="no-margin hide-overflow">
-            <strong class="title">飲み会で使える一発芸教えて！</strong>
+            <strong class="title">{title}</strong>
           </h5>
           <ul class="list-inline color-blue-dark">
-            <li class="price icon-inline-price">500円</li>
-            <li class="time icon-inline-time">0.5h</li>
-            <li class="location icon-inline-location">Skype, 新宿</li>
+            <li class="price icon-inline-price">{price}</li>
+            <li class="time icon-inline-time">{time}</li>
+            <li class="location icon-inline-location">{location}</li>
           </ul>
           <footer class="clearfix">
             <p class="user pull-left">
               <img src="img/user-icon.jpg" alt="user icon" class="img-circle">
-              <strong class="user-name">アカウント名</strong>
+              <strong class="user-name userName">{userName}</strong>
               &nbsp;
-              <span class="color-text-hint">2015.11.12</span>
+              <span class="color-text-hint createdAt">{createdAt}</span>
             </p>
             <span class="like icon-inline-person pull-right color-red h4">1</span>
           </footer>
