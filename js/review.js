@@ -86,7 +86,7 @@
         .then(function(user) {
           console.log(user);
 		  $("img#user-img").attr("src",user.profile_img_url);
-		  $("#last-first-name").text(user.last_name + " " + user.first_name); 
+		  $("#last-first-name").text(user.last_name + " " + user.first_name);
 		  $("#user-name").text(user.username);
 		  var star = Math.floor(user.review_ave);
 		  var star_i = 5-star;
