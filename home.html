@@ -34,7 +34,7 @@
     <!-- user info -->
     <div id="userinfo" class="row">
         <div class="row centering">
-            <img src="{{userinfo.profile_img_url}}" alt="userimg" />
+            <img id="userimg" src="{{userinfo.profile_img_url}}" alt="userimg" />
         </div>
         <div class="row">
             <a href="reviewlist.html?id={{userinfo.id}}">
@@ -58,6 +58,7 @@
                 <span>{{userinfo.username}}</span>
             </div>
         </div>
+        <a href="setting.html"><img id="setting" src="img/icon/settings.png" alt="settingicon" /></a>
     </div>
     <!-- menu -->
     <div id="links" class="row">
