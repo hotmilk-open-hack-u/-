@@ -18,7 +18,7 @@ $(function(){
         // ログインしていなかったらトップ画面へ移動
         //window.location.href = 'toppage.html';
     }
-
+    
     // urlからパラメータの取得
     ticketID = window.common.getQueryString('ticket_id'); //URLのgetパラメータ取得
 

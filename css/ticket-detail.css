@@ -104,7 +104,9 @@
     background-size: contain;
 	margin-top: 15px;
 }
-
+.review{
+	padding:0px;
+}
 .like_icon {
     width: 40px;
     height: 40px;

@@ -39,9 +39,16 @@
 				<p class="gray-font col-xs-3 col-sm-3 col-md-3 col-xs-offset-3 col-sm-offset-3 col-md-offset-3 ap_name">{{apply.user.last_name}} {{apply.user.first_name}}</p>
 			</div>
 			<div class="row">
-				<div class="col-xs-3 col-sm-3 col-md-3">
+				<div class="col-xs-3 col-sm-3 col-md-3 review">
 					<img class="little_thumbnail center-block" src="./img/icon/thumbnail.png" alt="thumbnail">
-					<p class="little_evaluation text-center">★ ☆ ☆ ☆ ☆ </p>
+					<p class="little_evaluation text-center">
+						<strong>{{apply.user.review_ave >= 1.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave >= 2.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave >= 3.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave >= 4.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave >= 5.0 ? '★':'☆' }}</strong>
+		                <strong>{{apply.user.review_ave}}</strong>
+					</p>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-6">
 					<p>{{apply.comment}}</p>
@@ -62,9 +69,16 @@
 		<!-- 教わったユーザーデータ -->
 		<div class="form-group clearfix wr_message" v-if="ticketinfo.bought_user_id != null">
 			<div class="row">
-				<div class="col-xs-3 col-sm-3 col-md-3">
+				<div class="col-xs-3 col-sm-3 col-md-3 review">
 					<img class="little_thumbnail center-block" src="./img/icon/thumbnail.png" alt="thumbnail">
-					<p class="little_evaluation text-center">★ ☆ ☆ ☆ ☆ </p>
+					<p class="little_evaluation text-center">
+						<strong>{{bought_user_info.review_ave >= 1.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave >= 2.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave >= 3.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave >= 4.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave >= 5.0 ? '★':'☆' }}</strong>
+		                <strong>{{bought_user_info.review_ave}}</strong>
+					</p>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-6">
 					<span class="ap_name" style="font-size:2em;padding-top:0.5em">{{bought_user_info.last_name}} {{bought_user_info.first_name}}</span>
