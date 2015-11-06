@@ -14,14 +14,12 @@
       el: '#selector-sort'
     });
 
-
   var utils = {
     getTickets: function(data) {
       var d = $.Deferred();
       $.ajax({
         'type': 'GET',
-        'url': 'http://210.140.71.3/tickets',
-        contentType: 'application/x-www-form-urlencoded;application/json;application/json',
+        'url': 'http://210.140.71.3/tickets.json',
         'data': data
       }).done(function(data) {
         d.resolve(data);
@@ -84,16 +82,38 @@
 
   var view = {
     bind: function($el, model) {
-      for (var key in model) {
-        if (model.hasOwnProperty(key)) {
-          $('.' + key, $el).html(model[key]);
+      var type, key, attr;
+
+      for (type in model) {
+        if (type === 'html') {
+          for (key in model[type]) {
+            if (model[type].hasOwnProperty(key)) {
+              $('.' + key, $el).html(model[type][key]);
+            }
+          }
+        } else if (type === 'attr') {
+          for (key in model[type]) {
+            if (model[type].hasOwnProperty(key)) {
+              for (attr in model[type][key]) {
+                if (model[type][key].hasOwnProperty(attr)) {
+                  $('.' + attr, $el).attr(key, model[type][key][attr]);
+                }
+              }
+            }
+          }
         }
       }
       return $el;
     },
-    addTickets: function(target, data) {
-      var $target = $('#' + target);
-      $target.text(data);
+    addTickets: function(el, data, model) {
+      var $template = $('#template .' + el).clone(),
+        $target = $('#' + el),
+        $tickets = [];
+
+      data.forEach(function(ticket) {
+        $tickets.push(view.bind($template.clone(), model(ticket)));
+      });
+      $target.append($tickets);
     },
   };
 
@@ -177,12 +197,91 @@
         };
       }
       selectorSort.$data = data;
+    },
+    search: function(text) {
+      var query = {};
+      if (text.trim()) {
+        query.q = text.trim();
+      }
+      if (store.gender !== 0) {
+        query.sex = store.gender - 1;
+      }
+      if (store.location !== 0) {
+        if (store.location === 1) {
+          query.place = 'online';
+        } else if (store.location === 2) {
+          query.place = 'offline';
+        }
+      }
+      if (store.skill !== 0) {
+        if (store.skill === 1) {
+          query.beginner = 1;
+        } else if (store.skill === 2) {
+          query.beginner = 0;
+        }
+      }
+      if (store.sort !== 0) {
+        if (store.sort === 1) {
+          query.sort = 'popular';
+        } else if (store.sort === 2) {
+          query.sort = 'create';
+        } else if (store.sort === 3) {
+          query.sort = 'time';
+          query.order = 'b';
+        } else if (store.sort === 4) {
+          query.sort = 'price';
+          query.order = 'a';
+        } else if (store.sort === 5) {
+          query.sort = 'price';
+          query.order = 'b';
+        }
+      }
+
+      $('#ticket').html('');
+      utils.getTickets(query)
+        .then(function(data) {
+          console.log(data);
+          view.addTickets('ticket', data.tickets, function(ticket) {
+            var place = [];
+            if (ticket.skype) {
+              place.push('Skype');
+            }
+            if (ticket.hangouts) {
+              place.push('Hangouts');
+            }
+            if (ticket.offline_place) {
+              place.push(ticket.offline_place);
+            }
+            return {
+              html: {
+                title: ticket.title,
+                price: ticket.price + '円',
+                time: ticket.time + 'h',
+                location: place.join(','),
+                userName: ticket.user.username,
+                createdAt: ticket.created_at.split(' ')[0]
+              },
+              attr: {
+                href: {
+                  link: 'detail.html?ticket_id' + ticket.id
+                },
+                src: {
+                  ticketImage: ticket.ticket_img_url,
+                  userImage: ticket.user.profile_img_url
+                },
+                style: {
+                  beginner: ticket.beginner ? '' : 'display: none'
+                }
+              }
+            };
+          });
+        });
     }
   };
 
   $(function() {
     controller.refleshUi();
-    
+
     var filterMenu = false;
     $('#filterMenuBtn').on('click', function() {
       filterMenu = !filterMenu;
@@ -195,6 +294,7 @@
     $('#searchbtn').on('click', function() {
       filterMenu = false;
       $('#filterMenu').removeClass('open');
+      controller.search($('#searchField').val());
     });
 
     $('.searchFilter').on('click', function() {

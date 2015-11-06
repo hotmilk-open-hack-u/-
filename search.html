@@ -135,7 +135,7 @@
         <input type="text" id="searchField" class="input-field color-blue-dark" placeholder="おしえてを探す">
         <!-- 検索ボタン -->
         <button id="searchbtn" type="button" class="btn color-blue-dark no-margin no-vertical no-border z-depth-0"><i class="glyphicon glyphicon-search"></i></button>
-        <div id="filterMenu" class="dropdown pull-right open">
+        <div id="filterMenu" class="dropdown pull-right">
           <button type="button" id="filterMenuBtn" class="btn color-yellow z-depth-0 filter icon-inline-filter-i dropdown-toggle">絞り込み</button>
           <ul class="dropdown-menu dropdown-menu-right">
             <li class="dropdown-header">検索条件</li>
@@ -204,16 +204,15 @@
         </div>
       </div>
     </div>
-    <div id="tickets">
+    <div id="ticket">
     </div>
   </main>
 
   <div id="template">
     <div class="ticket">
-      <a href="#" class="no-decoration">
+      <a href="" class="link no-decoration">
         <div class="ticket-image">
-          <div class="new"></div>
-          <img src="img/ticket.jpg" alt="ticket image">
+          <img class="ticketImage" src="" alt="ticket image">
         </div>
         <div class="ticket-detail">
           <div class="beginner"></div>
@@ -227,7 +226,7 @@
           </ul>
           <footer class="clearfix">
             <p class="user pull-left">
-              <img src="img/user-icon.jpg" alt="user icon" class="img-circle">
+              <img src="" alt="user icon" class="img-circle userImage">
               <strong class="user-name userName">{userName}</strong>
               &nbsp;
               <span class="color-text-hint createdAt">{createdAt}</span>
