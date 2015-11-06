@@ -46,9 +46,14 @@
 						<small class="gray-font">{{apply.created_at.substr(0,10)}}</small>
 					</div>
 					<div class="col-xs-3 col-sm-3 col-md-3">
+						<button type="button" class="teach_button teach_button_little" onclick="teachRequest({{apply.user.id}})">
+							<strong>教わる！</strong>
+						</button>
+						<!-- チャットを開くボタン (チャット実装時に使用)
 						<button type="button" name="message_button" id="message_button">
 							<label id="message_icon" for="message"></label>
 						</button>
+						-->
 					</div>
 				</div>
 			</div>

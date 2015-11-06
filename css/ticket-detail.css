@@ -147,6 +147,9 @@ h3,h6 {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
+.teach_button_little {
+	font-size: 0.8em;
+}
 
 img#price,img#time,img#location {
 	width: 20px;
