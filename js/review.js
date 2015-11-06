@@ -2,8 +2,7 @@
   'use strict';
 
   var ticketId = parseInt(window.common.getQueryString('ticket_id'), 10);
-  // var token = window.common.me.token;
-  var token = 'LyiiWG9cqWeNpVvPN6p7mSkxaYgiG1yg';
+  var token = window.common.me.token;
   var maxScore = 5;
 
   // ログイン状態の確認
