@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ちえぴったん</title>
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/ticket-detail.css">
+		<link rel="stylesheet" href="./css/common.css"> 
+	</head>
+	<body>
+		<script src="./js/common.js"></script>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/ticket_detail/receive-ticket.js"></script>
+		<header role="banner">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
+						<a href="" class="icon-notice" aria-hidden="true"></a>
+					</button>
+					<a href="#" class="navbar-brand"></a>
+					<button type="button" class="navbar-toggle no-margin no-border">
+						<a href="" class="icon-search" aria-hidden="true"></a>
+					</button>
+					<button type="button" class="navbar-toggle no-margin no-border">
+						<a href="" class="icon-ticket" aria-hidden="true"></a>
+					</button>
+				</div>
+			</nav>
+		</header>
+		<div class="form-group clearfix wr_message">
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3" >
+					<img class="little_thumbnail" src="./img/icon/thumbnail.png" alt="thumbnail">
+					<small class="little_evaluation pull-left">★ ☆ ☆ ☆ ☆ </small>
+				</div>
+				<div class="col-xs-9 col-sm-9 col-md-9">
+					<small id="ticket_user_name">名前</small>
+					<textarea class="form-control pull-right" id="send_content" rows="2" cols="30" wrap="soft" placeholder="ひとこと" required></textarea>
+				</div>
+			</div>
+			<small class="pull-right">2014/11/04</small>
+		</div>
+		<div class="row">
+			<div class=" col-xs-10 col-sm-8 col-md-8 col-xs-offset-1 col-sm-offset-2 col-md-offset-2">
+				<button type="button" class="send_ms_button" onclick="location.href='./request.html?ticket_id='">
+					<strong>送信</strong>
+				</button>
+			</div>
+		</div>
+		<div id="ticketpage">
+			<div id="ticketTitle" class="container">
+				<div class="clearfix"> 
+					<img src="./img/icon/beginner.png" class="pull-right beginner_icon" alt="beginner">
+				</div>
+				<h3 id="mainticket_title" class="text-center">
+					<strong>タイトル</strong>
+				</h3>
+				<div class="clearfix">
+					<img src="./img/icon/like.png" class="pull-right like_icon" alt="like">
+				</div>
+			</div>
+
+				<!-- ここまでチケットのタイトル -->
+
+			<div id="ticketdetail" class="container">
+				<div class="form-group">
+					<h6 class="text-center"><label for="ticketContent">教えて欲しい内容</label></h6>
+					<p class="blue-font">チケット内容</p>
+				</div>
+				<hr>
+				<h6 class="text-center"><label for="ticketInformation">希望事項</label></h6>
+				<div class="blue-font row clearfix marginbottom10px">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<p class="blue-font pull-right">希望料金</p>
+						<img id="price" class="pull-right" src="./img/icon/price.png" alt="money">
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<p id="hope_price_time">price/time</p>
+					</div>
+				</div>
+				<div class="blue-font row clearfix marginbottom10px">
+					<div class="col-xs-6 col-sm-6 col-md-6 blue-font">
+						<p class="pull-right">所要時間</p>
+						<img id="time" class="pull-right" src="./img/icon/time.png" alt="money">
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<p id="hope_time">time/h</p>
+					</div>
+				</div>
+				<div class="blue-font row clearfix marginbottom10px">
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<p class="pull-right">希望場所</p>
+						<img id="location" class="pull-right" src="./img/icon/location.png" alt="money">
+					</div>
+					<div class="col-xs-6 col-sm-6 col-md-6">
+						<p ="hope_location">location</p>
+					</div>
+				</div>
+				<hr>
+					<!-- ここまで希望事項 -->
+
+				<h6 class="text-center"><label for="ticketTag">タグ</label></h6>
+				<div id="taglist">
+					<div class="tag color-blue">一発芸</div>
+					<div class="tag color-blue">一発芸</div> 
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -20,13 +20,11 @@ $(document).ready(function(){
     user_token = "y8ZS4Vx8WXRHv2fe52KEMdYEybJwdFVK";//test用
     console.log("user_id:\t"+user_id+"\nuser_token:\t"+user_token);
 
-    var test_review_value = 4.3;// テスト用の評価値
-
     // データバインディングの設定
     vueUser = new Vue({
         el:'#userinfo',
         data:{
-            user_review:test_review_value
+            userinfo:[]
         }
     });
     vueTickets = new Vue({
@@ -49,14 +47,27 @@ $(document).ready(function(){
         // ログインしていなかったらトップ画面へ移動
         //window.location.href = 'toppage.html';
     }
+    // ユーザー情報の取得
+    $.ajax({
+        type: 'GET',
+        url: "http://210.140.71.3/users/"+user_id+".json",
+        dataType: "json",
+        success: function(data){
+            vueUser.userinfo = data;
+        },
+        error : function(data) {
+            console.log("this user is not found");
+            // ユーザーデータが取れなかったらホームに飛ぶ？
+            // window.location.href = 'home.html';
+        }
+    });
     // あなたにオススメの教えて！を取得(教えよう)
     $.ajax({
         type: 'GET',
         url: 'http://210.140.71.3/tickets.json',
-        data: {"sort":"time","user_id":user_id,"offset":offset,"filter":"matching"},
+        data: {"sort":"create","user_id":user_id,"offset":offset,"filter":"matching"},
         dataType: "json",
         success: function(data){
-            console.log(data);
             vueTickets.teach_tickets = data.tickets;
         },
         error : function(data) {
@@ -67,10 +78,9 @@ $(document).ready(function(){
     $.ajax({
         type: 'GET',
         url: 'http://210.140.71.3/tickets.json',
-        data: {"sort":"time","user_id":user_id,"offset":offset,"filter":"no_bought"},
+        data: {"sort":"create","user_id":user_id,"offset":offset,"filter":"no_bought"},
         dataType: "json",
         success: function(data){
-            console.log(data);
             vueTickets.learn_tickets = data.tickets;
         },
         error : function(data) {
