@@ -13,6 +13,7 @@
 	<body>
 		<script src="./js/jquery.min.js"></script>
 		<script src="./js/jquery-ui.min.js"></script>
+		<script src="./js/vue.min.js"></script>
 		<script src="./js/setting-change-icon.js"></script>
 		<script src="./js/setting.js"></script>
 		<header role="banner">
@@ -31,6 +32,7 @@
 			</div>
 		  </nav>
 		</header>
+		<div id="main">
 		<div class="bg_white">
 			<form role="form" id="form">
 				<div class="container">
@@ -46,16 +48,16 @@
 	                <!--    <input type="file" name="select_file" id="select_file">
     	                <label id="file_icon" for="select_file"></label> -->
 					<div class="clearfix form-group">
-						<img id="thumbnail_icon" class="pull-left" src="./img/icon/thumbnail.png" alt="default-icon"></img>
+						<img id="thumbnail_icon" class="pull-left" src="{{userinfo.profile_img_url}}" alt="default-icon"></img>
 					</div>
 					<div class="form-group">
 						<label class="blue-font" for="user-name">ユーザーネーム</label>
-						<input type="text" class="form-control" id="user-name">
+						<input type="text" class="form-control blue-font" id="user-name" value={{userinfo.username}}>
                     </div>
 					<div class="form-group">
 						<label class="blue-font" for="last_first_name">姓名</label>
-						<input type="text" class="form-control" id="last-name">
-						<input type="text" class="form-control" id="first-name">
+						<input type="text" class="form-control blue-font" id="last-name" value={{userinfo.last_name}}>
+						<input type="text" class="form-control blue-font" id="first-name" value={{userinfo.first_name}}>
 					</div>
 					<div class="form-group">
 					<label class="blue-font" for="sex">性別</label>
@@ -76,11 +78,11 @@
 					</div>
 					<div class="form-group">
 						<label class="blue-font" for="mail-address">メールアドレス</label>
-						<input type="text" class="form-control" id="mail-address">
+						<input type="text" class="form-control blue-font" id="mail-address" value={{userinfo.email}}>
 					</div>
 					<div class="form-group">
 						<label class="blue-font" for="profile_text">自己紹介</label>
-						<textarea class="form-control" id="profile_text" rows="6" cols="40" wrap="soft"></textarea>
+						<textarea class="form-control blue-font" id="profile_text" rows="6" cols="40" wrap="soft" value={{userinfo.introduction}}></textarea>
 					</div>
 				</div>
 			</form>
@@ -95,10 +97,7 @@
 		<div class="bg_white">
 			<div class="container">
 				<h6 class="text-center"><label for="ticketTitle">得意ジャンル選択</label></h6>
-				<div class="tag color-blue">一発芸</div>
-				<div class="tag color-blue">一発芸</div>
-				<div class="tag color-blue">一発芸</div>
-				<div class="tag color-blue">アコースティックギター</div>
+				<div class="tag color-blue" v-for="tag in userinfo.tags">{{tag.name}}</div>
 			</div>
 		</div>
 		<div class="container">
@@ -108,5 +107,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</body>
 </html>

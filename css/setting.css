@@ -3,7 +3,7 @@ h4 {
 }
 
 h6.text-center {
-    color: #f44336; 
+    color: #f44336;
 }
 
 .no-padding-left {
@@ -28,7 +28,6 @@ h6.text-center {
 input#select_file[type="file"] {
     opacity: 0;
 }
-
 #file_icon {
     width: 20px;
     height: 20px;
@@ -44,6 +43,7 @@ input#select_file[type="file"] {
 #thumbnail_icon {
 	width: 70px;
 	height: 70px;
+    border-radius: 50%;
 }
 
 #last-name {
@@ -123,4 +123,3 @@ input[type="text"],#profile_text {
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
 }
-
