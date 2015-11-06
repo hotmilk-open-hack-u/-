@@ -100,7 +100,7 @@
         </div>
         <div id="contents" class="row">
             <div class="row ticket" v-for="ticket in tickets">
-                <a href="detail.html?ticket_id={{ticket.id}}">
+                <a href="{{isT ?  'detail.html?ticket_id=' : 'detail2.html?ticket_id='}}{{ticket.id}}">
                 <div class="ticket_img col-xs-4 col-md-4 col-lg-4">
                     <!-- background img -->
                 </div>
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-                </a>
+            </a>
             </div>
         </div>
     </div>

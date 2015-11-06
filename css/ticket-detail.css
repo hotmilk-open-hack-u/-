@@ -2,7 +2,6 @@
 	background-color:rgb(255,255,222);
 	padding: 1em;
 }
-
 #edit {
 	margin-top: 15px;
 	padding: 5px 15px 5px 15px;
@@ -12,16 +11,17 @@
     border-color: #74bae3;
     box-shadow: 0px 2px 0px 0px rgba(223,203,74,1);
     -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;	
+    -webkit-border-radius: 5px;
 }
-
 .wr_message {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	padding: 1em;
 	background-color: #fff;
 }
-
+.ap_name{
+	width:60%;
+}
 .little_thumbnail {
 	width: 50px;
 	height: 50px;
@@ -105,7 +105,9 @@
     background-size: contain;
 	margin-top: 15px;
 }
-
+.review{
+	padding:0px;
+}
 .like_icon {
     width: 40px;
     height: 40px;
@@ -148,6 +150,9 @@ h3,h6 {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
+.teach_button_little {
+	font-size: 0.8em;
+}
 
 img#price,img#time,img#location {
 	width: 20px;
@@ -167,5 +172,3 @@ img#price,img#time,img#location {
 .tag {
 	margin: 0px 5px 5px 0px;
 }
-
-
