@@ -8,28 +8,29 @@
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/ticket-detail.css">
 	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/header.css">
 	<script src="./js/common.js"></script>
 	<script src="./js/jquery.min.js"></script>
 	<script src="./js/vue.min.js"></script>
 	<script src="./js/detail2.js"></script>
 </head>
 <body>
-<header role="banner">
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
-				<a href="" class="icon-notice" aria-hidden="true"></a>
-			</button>
-			<a href="#" class="navbar-brand"></a>
-			<button type="button" class="navbar-toggle no-margin no-border">
-				<a href="" class="icon-search" aria-hidden="true"></a>
-			</button>
-			<button type="button" class="navbar-toggle no-margin no-border">
-				<a href="" class="icon-ticket" aria-hidden="true"></a>
-			</button>
-		</div>
-	</nav>
-</header>
+<div class="container" id="header">
+    <div class="row" id="header-wrapper">
+        <div class="col-xs-4 col-md-4 col-lg-4" id="icon-notice">
+            <a href="home.html"><img src="img/icon/notice.png" alt="notice_icon" /></a>
+        </div>
+        <div class="col-xs-4 col-md-4 col-lg-4" id="logo-img">
+            <div class="centering">
+                <a href="home.html"><img src="img/logo-02.png" alt="logo" /></a>
+            </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-lg-4" id="icons">
+            <a href="create.html"><img src="img/icon/ticket.png" alt="ticket_icon" /></a>
+            <a href="search.html"><img src="img/icon/search.png" alt="search_icon" /></a>
+        </div>
+    </div>
+</div>
 <div id="main">
 	<div id="applylist">
 		<h3>{{ticketinfo.bought_user_id == null?"教えてくれるユーザー":"教わったユーザー"}}</h3>
