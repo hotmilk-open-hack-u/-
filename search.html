@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    .search {
+      background-color: #fff;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .no-margin {
+      margin: 0 !important;
+    }
+
+    .no-border {
+      border: 0 !important;
+    }
+
+    .no-vertical {
+      vertical-align: inherit;
+    }
+
+    .filter {
+      border-radius: 0 !important;
+      padding: 4px 10px 4px 15px;
+    }
+
+    .icon-inline-filter-i {
+      margin: 0;
+    }
+
+    .btn {
+      font-size: inherit;
+    }
+
+    .inline-btn {
+      display: inline-block;
+      padding: 1px 1.5em;
+      width: 6em;
+    }
+
+    dl {
+      margin: 5px;
+    }
+
+    .dropdown-menu .divider {
+      margin: 5px 0;
+    }
+
+    .dropdown-menu {
+      border: 0;
+      padding: 0;
+    }
+
+    .dropdown-header {
+      padding: 5px 5px;
+    }
+
+    .divider {
+      padding: 0 !important;
+    }
+
+    .dropdown-header {
+      font-size: inherit;
+      color: #fff;
+      background-color: #fae134;
+    }
+
+    dl.list dd div {
+      display: inline-block;
+      min-width: 12.5em;
+    }
+
+    dl.list dt {
+      float: left;
+      width: 5em;
+      padding-bottom: 0;
+      padding-right: 0;
+    }
+
+    dl.list dd {
+      margin-left: 5em;
+    }
+
+    #searchField {
+      width: 80%;
+    }
+
+    #template {
+      display: none;
+    }
+  </style>
+  <title>ちえぴったん | おしえてを探す</title>
+</head>
+
+<body>
+  <header role="banner">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle no-margin no-border pull-left clearfix">
+          <a href="" class="icon-notice" aria-hidden="true"></a>
+        </button>
+        <a href="#" class="navbar-brand"></a>
+        <button type="button" class="navbar-toggle no-margin no-border">
+          <a href="search.html" class="icon-search" aria-hidden="true"></a>
+        </button>
+        <button type="button" class="navbar-toggle no-margin no-border">
+          <a href="create.html" class="icon-ticket" aria-hidden="true"></a>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="search container">
+      <div class="center-block">
+        <input type="text" id="searchField" class="input-field color-blue-dark" placeholder="おしえてを探す">
+        <button type="button" class="btn color-blue-dark no-margin no-vertical no-border z-depth-0"><i class="glyphicon glyphicon-search"></i></button>
+        <div class="dropdown pull-right">
+          <button type="button" id="filterMenu" class="btn color-yellow z-depth-0 filter icon-inline-filter-i dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">絞り込み</button>
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="filterMenu">
+            <li class="dropdown-header">検索条件</li>
+            <li>
+              <dl class="list">
+                <dt>
+                  <span class="icon-inline-gender h6 color-text-hint">性別</span>
+                </dt>
+                <dd>
+                  <div>
+                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-male-y z-depth-0 no-margin inline-btn">男</button>
+                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-female-y z-depth-0 no-margin inline-btn">女</button>
+                  </div>
+                </dd>
+              </dl>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <dl class="list">
+                <dt>
+                  <span class="icon-inline-location-b h6 color-text-hint">場所</span>
+                </dt>
+                <dd>
+                  <div>
+                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-online-y z-depth-0 no-margin inline-btn">
+                      <span class="h6">オン</span>
+                    </button>
+                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-offline-y z-depth-0 no-margin inline-btn">
+                      <span class="h6">オフ</span>
+                    </button>
+                  </div>
+                </dd>
+              </dl>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <dl class="list">
+                <dt>
+                  <span class="icon-inline-skill h6 color-text-hint">スキル</span>
+                </dt>
+                <dd>
+                  <div>
+                    <button class="btn color-yellow bg-color-white text-color-yellow icon-inline-beginner-y z-depth-0 no-margin inline-btn">
+                      <span class="h6">初心者</span>
+                    </button>
+                  </div>
+                </dd>
+              </dl>
+            </li>
+            <li class="dropdown-header">並び替え</li>
+            <li><a class="icon-inline-like-y text-color-yellow">人気順</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a class="icon-inline-star-y text-color-yellow">最新順</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a class="icon-inline-time-y text-color-yellow">所要時間が長い順</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a class="icon-inline-price-asc-y text-color-yellow">価格が低い順</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a class="icon-inline-price-desc-y text-color-yellow">価格が高い順</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="tickets">
+      <div class="ticket">
+        <a href="#" class="no-decoration">
+          <div class="ticket-image">
+            <div class="new"></div>
+            <img src="img/ticket.jpg" alt="ticket image">
+          </div>
+          <div class="ticket-detail">
+            <div class="beginner"></div>
+            <h5 class="no-margin hide-overflow">
+              <strong class="title">飲み会で使える一発芸教えて！</strong>
+            </h5>
+            <ul class="list-inline color-blue-dark">
+              <li class="price icon-inline-price">500円</li>
+              <li class="time icon-inline-time">0.5h</li>
+              <li class="location icon-inline-location">Skype, 新宿</li>
+            </ul>
+            <footer class="clearfix">
+              <p class="user pull-left">
+                <img src="img/user-icon.jpg" alt="user icon" class="img-circle">
+                <strong class="user-name">アカウント名</strong>
+                &nbsp;
+                <span class="color-text-hint">2015.11.12</span>
+              </p>
+              <span class="like icon-inline-person pull-right color-red h4">1</span>
+            </footer>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <div id="template">
+    <div class="ticket">
+      <a href="#" class="no-decoration">
+        <div class="ticket-image">
+          <div class="new"></div>
+          <img src="img/ticket.jpg" alt="ticket image">
+        </div>
+        <div class="ticket-detail">
+          <div class="beginner"></div>
+          <h5 class="no-margin hide-overflow">
+            <strong class="title">飲み会で使える一発芸教えて！</strong>
+          </h5>
+          <ul class="list-inline color-blue-dark">
+            <li class="price icon-inline-price">500円</li>
+            <li class="time icon-inline-time">0.5h</li>
+            <li class="location icon-inline-location">Skype, 新宿</li>
+          </ul>
+          <footer class="clearfix">
+            <p class="user pull-left">
+              <img src="img/user-icon.jpg" alt="user icon" class="img-circle">
+              <strong class="user-name">アカウント名</strong>
+              &nbsp;
+              <span class="color-text-hint">2015.11.12</span>
+            </p>
+            <span class="like icon-inline-person pull-right color-red h4">1</span>
+          </footer>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/search.js"></script>
+</body>
+
+</html>

@@ -81,10 +81,21 @@
       utils.getTicket(ticketId)
         .then(function(ticket) {
           view.review.add('ticketTitle', ticket.title);
-          return utils.getUser(ticket.user.id);
+          return utils.getUser(ticket.bought_user_id);
         })
         .then(function(user) {
-          console.log(user);
+          $('img#user-img').attr('src', user.profile_img_url);
+          $('#last-first-name').text(user.last_name + ' ' + user.first_name);
+          $('#user-name').text(user.username);
+          var star = Math.floor(user.review_ave);
+          var star_i = 5 - star;
+          for (var j = 0; j < star; j++) {
+            $('#user-evaluation').append('<span class="icon-inline-star-r"></span>');
+          }
+          for (var i = 0; i < star_i; i++) {
+            $('#user-evaluation').append('<span class="icon-inline-star-r-i"></span>');
+          }
+          $('#star-number').text(user.review_ave);
         });
     },
     send: function(score, comment) {

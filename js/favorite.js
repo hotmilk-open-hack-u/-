@@ -8,7 +8,7 @@ var vueTickets;
 $(document).ready(function(){
     // userの情報を取得
     // user_id = localStorage.getItem("user_id");
-    user_id = 1;//test用
+    user_id = window.common.getQueryString('user_id'); //URLのgetパラメータ取得;
     //user_token = localStorage.getItem("token");
     user_token = "y8ZS4Vx8WXRHv2fe52KEMdYEybJwdFVK";//test用
     console.log("user_id:\t"+user_id+"\nuser_token:\t"+user_token);
