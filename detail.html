@@ -112,32 +112,6 @@
 						<div class="tag color-blue" v-for="tag in ticketdata.tags">{{tag.name}}</div>
 					</div>
 				</div>
-				<div class="ticket" v-for="userticket in usertickets">
-					<a href="detail.html?ticket_id={{userticket.id}}" class="no-decoration">
-						<div class="ticket-image">
-							<!-- <div class='new'></div> -->
-							<img src="{{userticket.header_img_url}}" alt="ticket image">
-						</div>
-						<div class="ticket-detail">
-							<h5 class="no-margin hide-overflow">
-								<strong class="title">{{userticket.title}}</strong>
-							</h5>
-							<ul class="list-inline color-blue-dark">
-								<li class="price icon-inline-price">{{userticket.price}}円</li>
-								<li class="time icon-inline-time">{{userticket.time}}h</li>
-								<li class="location icon-inline-location">{{userticket.skype ? 'Skype':''}} {{ticketdata.offline_place}}</li>
-							</ul>
-							<footer class="clearfix">
-								<p class="user pull-left">
-									<img src="{{userticket.user.profile_img_url}}" alt="user icon" class="img-circle">
-									<strong class="user-name">{{userticket.user.username}}</strong>
-								</p>
-								<span class="like icon-inline-like pull-right color-red">{{userticket.stocked_num}}</span>
-							</footer>
-						</div>
-					</a>
-				</div>
-				<a href="" class="pull-right">もっとみる</a>
 			</div>
 		</div>
 	</body>
