@@ -9,11 +9,9 @@ $(function(){
 	if(user_id == null || user_token == null || user_id == undefined || user_token == undefined){
 		console.log("not login");
 		// ログインしていなかったらトップ画面へ移動
-		// window.location.href = 'toppage.html';
+		window.location.href = 'toppage.html';
 	}
 
-	user_id = localStorage.getItem("user_id");
-	user_id = 1;// test
 	var sex = null;
 
 	if($("input#male").prop('checked')) {
@@ -51,8 +49,6 @@ $(function(){
 		},
 		error : function(data) {
 			console.log("this user is not found");
-			// ユーザーデータが取れなかったらホームに飛ぶ？
-			// window.location.href = 'home.html';
 		}
 	});
 
