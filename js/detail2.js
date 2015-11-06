@@ -23,16 +23,12 @@ $(function(){
     ticketID = window.common.getQueryString('ticket_id'); //URLのgetパラメータ取得
 
 	// データバインディングの設定
-	var vueApplyList = new Vue({
-		el:'#applylist',
+	var vueObj = new Vue({
+		el:'#main',
 		data:{
-			applylist:[]
-		}
-	});
-    var vueTickets = new Vue({
-		el:'#ticketpage',
-		data:{
-			ticketinfo:[],
+			applylist:[],
+            ticketinfo:[],
+            bought_user_info:[]
 		}
 	});
 
@@ -43,7 +39,7 @@ $(function(){
 		contentType: 'application/x-www-form-urlencoded;application/json;application/json',
 		success: function(data){
 			console.log(data);
-			vueApplyList.applylist = data.apply_list;
+			vueObj.applylist = data.apply_list;
 		},
 		error: function(xhr,textStatus,errorThrown){
 			console.log("error.");
@@ -57,7 +53,25 @@ $(function(){
 		contentType: 'application/x-www-form-urlencoded;application/json;application/json',
 		success: function(data){
 			console.log(data);
-			vueTickets.ticketinfo = data;
+            if(data.bought_user_id != null){
+                // ユーザー情報の取得
+                console.log("this ticket is bought");
+                $.ajax({
+                    type: 'GET',
+                    url: "http://210.140.71.3/users/"+data.bought_user_id+".json",
+                    dataType: "json",
+                    success: function(data){
+                        console.log(data);
+                        vueObj.bought_user_info = data;
+                    },
+                    error : function(data) {
+                        console.log("this user is not found");
+                        // ユーザーデータが取れなかったらホームに飛ぶ？
+                        // window.location.href = 'home.html';
+                    }
+                });
+            }
+			vueObj.ticketinfo = data;
 		},
 		error: function(xhr,textStatus,errorThrown){
 			console.log("auth error");
