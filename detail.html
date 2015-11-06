@@ -71,7 +71,7 @@
 					<div class="form-group">
 						<h6 class="text-center"><label for="ticketContent">教えて欲しい内容</label></h6>
 						<p class="blue-font">{{ticketdata.body}}</p>
-						<button type="button" class="teach_button">
+						<button v-if="ticketdata.bought_user_id == null" type="button" class="teach_button">
 							<strong>教える！</strong>
 						</button>
 					</div>
