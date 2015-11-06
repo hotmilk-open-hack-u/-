@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/toppage.css">
+    <link rel="stylesheet" href="css/ticket.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/vue.min.js"></script>
@@ -91,33 +92,42 @@
                     <span>注目の<img src="img/teach-plz.png" alt="oshiete2" id="oshiete2"/></span>
                 </div>
             </div>
-            <div class="row" id="content4-main">
-                <!-- ここに注目の教えてを挿入 -->
-                <div class="ticket" v-for="item in items">
-                  <a href="#" class="no-decoration">
-                    <div class="ticket-image">
-                      <div class="new"></div>
-                      <img src="img/ticket.jpg" alt="ticket image">
-                    </div>
-                    <div class="ticket-detail">
-                      <h5 class="no-margin hide-overflow">
-                        <strong class="title">{{item.title}}</strong>
-                      </h5>
-                      <ul class="list-inline color-blue-dark">
-                        <li class="price icon-inline-price">{{item.price}}</li>
-                        <li class="time icon-inline-time">{{item.time}}</li>
-                        <li class="location icon-inline-location">{{item.offline_place}}</li>
-                      </ul>
-                      <footer class="clearfix">
-                        <p class="user pull-left">
-                          <img src="img/user-icon.jpg" alt="user icon" class="img-circle">
-                          <strong class="user-name">{{item.user.username}}</strong>
-                        </p>
-                        <span class="like icon-inline-like pull-right color-red">1</span>
-                      </footer>
-                    </div>
-                  </a>
+            <div class="row ticket" v-for="ticket in items">
+                <a href="detail.html?ticket_id={{ticket.id}}">
+                <div class="ticket_img col-xs-4 col-md-4 col-lg-4">
+                    <!-- background img -->
                 </div>
+                <div class=" ticket-info col-xs-8 col-md-8 col-lg-8">
+                    <div class="title row">
+                        <strong>{{ticket.title}}</strong>
+                    </div>
+                    <div class="row">
+                        <div class="t-info col-xs-6 col-md-6 col-lg-6">
+                            <img src="img/icon/price.png" alt="price"/><span>  {{ticket.price}}円</span>
+                        </div>
+                        <div class="t-info col-xs-6 col-md-6 col-lg-6">
+                            <img src="img/icon/time.png" alt="price"/><span>  {{ticket.time}}h</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="t-info col-xs-12 col-md-12 col-lg-12">
+                            <img src="img/icon/location.png" alt="location"/><span>  {{ticket.skype ? 'Skype':''}} {{ticket.offline_place}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="accountimage col-xs-5 col-md-5 col-lg-5">
+                            <img src="img/user-icon.jpg" alt="" /><strong>{{ticket.user.username}}</strong>
+                        </div>
+                        <div class="date col-xs-4 col-md-4 col-lg-4">
+                            <strong>{{ticket.updated_at.substr(0,10)}}</strong>
+                        </div>
+                        <div class="apply col-xs-3 col-md-3 col-lg-3">
+                            <img src="img/icon/person.png" alt="person" /><strong>{{ticket.stocked_num}}</strong>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
                 <!-- 初期のテンプレート -->
                 <!-- <div class="row tickets" v-for="item in items">
                     <div class="col-xs-4 col-md-4 col-lg-4">
@@ -168,8 +178,6 @@
     <div class="container" id="footer">
         <div class="row">
             <div class="col-xs-12 col-md-12 col-lg-12 centering" id="footer-wrapper">
-                <span><a href="#">運営会社</a>　<a href="#">採用情報</a>　<a href="#">利用規約</a></span><br>
-                <span><a href="#">プライバシーポリシー</a>　<a href="#">よくある質問</a></span><br>
                 <span><a href="#">PC表示モード</a></span>
             </div>
         </div>

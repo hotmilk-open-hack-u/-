@@ -1,12 +1,11 @@
 $(function(){
-
 	var ticketdata;
 	var ticketID = window.common.getQueryString('ticket_id'); //URLのgetパラメータ取得
 	var offset;
 
-    $(".teach_button").click(function(){
-    	location.href='./request.html?ticket_id=' + ticketID;	
-    });  
+	$(".teach_button").click(function(){
+    	location.href='./request.html?ticket_id=' + ticketID;
+    });
 
 	console.log("ticketID : "+ticketID);
 	// データバインディングの設定
