@@ -227,13 +227,13 @@
           query.sort = 'create';
         } else if (store.sort === 3) {
           query.sort = 'time';
-          query.order = 'b';
+          query.order = 'd';
         } else if (store.sort === 4) {
           query.sort = 'price';
           query.order = 'a';
         } else if (store.sort === 5) {
           query.sort = 'price';
-          query.order = 'b';
+          query.order = 'd';
         }
       }
 
