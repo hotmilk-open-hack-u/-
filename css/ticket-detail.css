@@ -53,6 +53,7 @@
     height: 60px;
 	background: url(../img/icon/message.png);
 	background-size: contain;
+	cursor: pointer;
 }
 
 .marginbottom10px {
