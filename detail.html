@@ -33,7 +33,9 @@
 		<div id="ticketpage">
 			<div class="row clearfix marginbottom10px">
 				<div class="col-xs-6 col-sm-6 col-md-6">
-					<img id="thumbnail" class="pull-right" src="./img/icon/thumbnail.png" alt="thumbnail">
+					<a href="user.html?user_id={{userinfo.id}}">
+						<img id="thumbnail" class="pull-right" src="{{userinfo.profile_img_url}}" alt="thumbnail">
+					</a>
 				</div>
 				<div class="userinformation col-xs-6 col-sm-6 col-md-6">
 					<p id="name">{{userinfo.last_name}} {{userinfo.first_name}}</p>

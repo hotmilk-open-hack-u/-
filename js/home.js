@@ -21,15 +21,10 @@ $(document).ready(function(){
     console.log("user_id:\t"+user_id+"\nuser_token:\t"+user_token);
 
     // データバインディングの設定
-    vueUser = new Vue({
-        el:'#userinfo',
-        data:{
-            userinfo:[]
-        }
-    });
-    vueTickets = new Vue({
+    vueObj = new Vue({
         el: '#main',
         data:{
+            userinfo:[],
             isT:isTeaching,
             teach_tickets:[],
             learn_tickets:[]
@@ -53,7 +48,7 @@ $(document).ready(function(){
         url: "http://210.140.71.3/users/"+user_id+".json",
         dataType: "json",
         success: function(data){
-            vueUser.userinfo = data;
+            vueObj.userinfo = data;
         },
         error : function(data) {
             console.log("this user is not found");
@@ -68,7 +63,7 @@ $(document).ready(function(){
         data: {"sort":"create","user_id":user_id,"offset":offset,"filter":"matching"},
         dataType: "json",
         success: function(data){
-            vueTickets.teach_tickets = data.tickets;
+            vueObj.teach_tickets = data.tickets;
         },
         error : function(data) {
             console.log("error");
@@ -81,7 +76,7 @@ $(document).ready(function(){
         data: {"sort":"create","user_id":user_id,"offset":offset,"filter":"no_bought"},
         dataType: "json",
         success: function(data){
-            vueTickets.learn_tickets = data.tickets;
+            vueObj.learn_tickets = data.tickets;
         },
         error : function(data) {
             console.log("error");

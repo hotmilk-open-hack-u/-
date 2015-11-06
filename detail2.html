@@ -40,7 +40,9 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-3 col-sm-3 col-md-3 review">
-					<img class="little_thumbnail center-block" src="./img/icon/thumbnail.png" alt="thumbnail">
+					<a href="user.html?user_id={{apply.user.id}}">
+						<img class="little_thumbnail center-block" src="{{apply.user.profile_img_url}}" alt="thumbnail">
+					</a>
 					<p class="little_evaluation text-center">
 						<strong>{{apply.user.review_ave >= 1.0 ? '★':'☆' }}</strong>
 		                <strong>{{apply.user.review_ave >= 2.0 ? '★':'☆' }}</strong>
