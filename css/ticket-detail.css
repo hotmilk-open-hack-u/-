@@ -63,7 +63,9 @@
 	background-size: contain;
 	cursor: pointer;
 }
-
+#u_info{
+	padding:0px;
+}
 .marginbottom10px {
 	margin-bottom: 10px;
 }
