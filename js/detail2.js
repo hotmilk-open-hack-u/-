@@ -51,7 +51,7 @@ $(function(){
 		url: 'http://210.140.71.3/tickets/'+ticketID+'.json',//' + ticketID + '.json',
 		contentType: 'application/x-www-form-urlencoded;application/json;application/json',
 		success: function(data){
-			console.log(data);
+			console.log("b_user : "+data.bought_user_id);
             if(data.bought_user_id != null){
                 // ユーザー情報の取得
                 console.log("this ticket is bought");

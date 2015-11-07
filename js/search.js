@@ -206,6 +206,7 @@
     },
     search: function(text) {
       var query = {};
+      query.filter = 'no_bought';
       if (text) {
         query.q = text.trim();
       }
