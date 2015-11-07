@@ -55,15 +55,36 @@ $(document).ready(function(){
                 var t_id = data.td.tag_id; // 押されたタグid
                 t_id = parseInt(t_id);// 文字列 -> Int
                 var t_name = data.td.tag_name;// 押されたタグ名
-
                 if(selected_tags.indexOf(t_id) == -1){// 未選択のタグ
                     console.log(t_id+" : "+t_name);
                     selected_tags.push((t_id));
                     selected_tag_names.push(t_name);
-                }else{
+                }else{// 登録済みのタグだったら
                     console.log("already selected tag");
+                    // id配列から削除
+                    var id_index = this.selected_tags.indexOf(t_id);
+                    this.selected_tags.splice(id_index,1);
+                    var name_index = vueSelectedTags.selected_tags.indexOf(t_name);
+                    vueSelectedTags.selected_tags.splice(name_index,1);
                 }
             }
+        }
+    });
+    // ユーザーのタグの取得
+    $.ajax({
+        type: 'GET',
+        url: "http://210.140.71.3/users/"+user_id+".json",
+        dataType: "json",
+        success: function(data){
+            console.log(data);
+            // 登録済みのタグを登録
+            for(var i=0;i<data.tags.length;i++){
+                vueTags.selected_tags.push(data.tags[i].id);
+                vueSelectedTags.selected_tags.push(data.tags[i].name);
+            }
+        },
+        error : function(data) {
+            console.log("this user is not found");
         }
     });
 
@@ -102,7 +123,6 @@ $(document).ready(function(){
             console.log("error");
         }
     });
-
     // 登録ボタンの処理
     $("#register-button").click(function(){
         console.log("post this data");
