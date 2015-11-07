@@ -260,7 +260,7 @@
             }
             return {
               html: {
-                title: ticket.title,
+                title: 15 < ticket.title.length ? ticket.title.substr(0, 15) + '…' : ticket.title,
                 price: ticket.price + '円',
                 time: ticket.time + 'h',
                 location: place.join(','),
