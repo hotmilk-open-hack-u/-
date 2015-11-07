@@ -48,13 +48,15 @@ $(function(){
 		minLength: 1
 	});
 	$("#button").click(function(){
-		if(!document.getElementById("form").checkValidity()){ //必須formが空でないか
-			if($("div.tag").length != 0) {
-			} else { //tagが何も追加されていなかったら
+		if($("div.tag").length == 0) {
+			alert("タグを追加してください。");
+			return;
+		} else if(!document.getElementById("form").checkValidity()){ //必須formが空でないか
 				alert("全ての項目を入力してください");
 				return;
 			}
-		}
+		
+	
 
 		if (!$(":checkbox[name='skype']").prop('checked') && !$(":checkbox[name='hangouts']").prop('checked') && !$(":input[name='offline_location']").val()) {
 			alert("希望場所を指定してください。");
@@ -114,6 +116,7 @@ $(function(){
 			error: function(xhr,textStatus,errorThrown){
 				console.log("error.");
 				console.log(xhr,textStatus,errorThrown);
+				location.reload();
 			},
 			complete: function(json_data){
 				console.log("complete.");

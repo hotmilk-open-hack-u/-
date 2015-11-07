@@ -166,7 +166,7 @@ input[type="text"],textarea#ticket_content,select#ticket_price,select#ticket_tim
 }
 
 div.tag {
-	margin: 0px 10px 10px 0px;
+	margin: 0px 10px 10px 10px;
 }
 
 .create-button {
