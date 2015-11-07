@@ -49,6 +49,7 @@
      top:0;
      background-color: rgb(215,87,59);
      box-shadow: 0px 5px 0px 0px rgba(183,72,57,1);
+     padding-right: 10px;
  }
  #header *{
      height:100%;
@@ -56,6 +57,9 @@
  #logo-img{
      /*padding-top: 10px;
      padding-bottom: 10px;*/
+ }
+ #header-wrapper div{
+    padding:0;
  }
  #header-wrapper img{
      padding-top: 10px;
